@@ -1,3 +1,23 @@
-<p>
-  game-card works!
-</p>
+
+<mat-card class="card-container">
+  <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">{{juego.name}}</mat-card-title>
+      <mat-card-subtitle>{{juego.rating}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img class="image-container" mat-card-image src={{juego.background_image}}>
+
+  <mat-card-content>
+      <h3>{{juego.released}}</h3>
+     
+  </mat-card-content>
+
+  <mat-card-actions>
+      <button mat-button color="warn" >
+          Leer mas...
+      </button>
+      <button mat-button color="info">
+          Comprar
+      </button>
+  </mat-card-actions>
+</mat-card>

@@ -4,10 +4,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GameListComponent } from './pages/game-list/game-list.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
-
+import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    MaterialModule,
+    CommonModule,
+    FlexLayoutModule
   ],
   declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent]

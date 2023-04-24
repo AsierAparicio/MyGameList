@@ -1,0 +1,27 @@
+<mat-toolbar class="toolbar">
+    <mat-icon routerLink="/">sports_esports</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+        <mat-menu #menu="matMenu">            
+          <button mat-menu-item routerLink="/home"><mat-icon matListItemIcon >grade</mat-icon>Home</button>
+          <button mat-menu-item routerLink="/detalles"><mat-icon matListItemIcon>update</mat-icon>Detalles</button>
+        </mat-menu>
+    </button>
+
+    <span class="spacer"></span>
+
+    <mat-form-field  class="example-s-width" appearance="fill">
+        <mat-label>Buscar</mat-label>
+        <input type="text" placeholder="Inserte titulo" aria-label="Buscar" matInput>
+        
+    </mat-form-field>
+
+    <button mat-button [matMenuTriggerFor]="usuario">
+       usuario
+       <mat-menu #usuario="matMenu">
+        <button mat-menu-item>Mis Juegos</button>
+        <button mat-menu-item>Ajustes</button>
+        <button mat-menu-item routerLink="/login">Cerrar Sesion</button>
+      </mat-menu>
+    </button>
+</mat-toolbar>
