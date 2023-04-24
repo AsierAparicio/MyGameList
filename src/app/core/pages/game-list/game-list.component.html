@@ -1,3 +1,18 @@
-<p>
-  game-list works!
-</p>
+<div fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="20px">
+
+    <div fxFlex="20" 
+        fxFlex.lg="20"
+        fxFlex.sm="40"
+        *ngFor="let juego of juegos">
+        <app-game-card [juego]="juego"></app-game-card>
+    </div>
+</div>
+
+<div class="botonera">
+    <button *ngIf="num>1" (click)="anterior()" mat-mini-fab color="primary"><mat-icon>arrow_back</mat-icon></button>
+    <h1 class="num">{{num}}</h1>
+    <button (click)="siguiente()" mat-mini-fab color="primary"><mat-icon>arrow_forward</mat-icon></button>
+</div>
