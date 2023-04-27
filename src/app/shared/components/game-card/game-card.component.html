@@ -9,13 +9,13 @@
 
   <mat-card-content>
       <h3>{{juego.released}}</h3>
-     
+
   </mat-card-content>
 
   <mat-card-actions>
-      <button mat-button color="warn" >
+      <a [routerLink]="['detail/',juego.id]" [state]=juego>
           Leer mas...
-      </button>
+      </a>
       <button mat-button color="info">
           Comprar
       </button>

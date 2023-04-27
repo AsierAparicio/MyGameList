@@ -11,6 +11,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-    
+    TextFieldModule,
   ]
 })
 export class MaterialModule { }
