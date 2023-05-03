@@ -16,6 +16,7 @@ import { Result } from 'src/app/interfaces/Videojuego.interfaces';
       button{
       margin:1%;
     }
+    * {background-color: #da4167}
   `]
 })
 export class GameListComponent implements OnInit {

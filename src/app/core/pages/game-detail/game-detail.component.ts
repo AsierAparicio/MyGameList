@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import { HttpClient } from '@angular/common/http';
+import { GameService } from '../../services/game.service';
+import { switchMap } from "rxjs";
+import { VideojuegoIndividual } from 'src/app/interfaces/Videojuego_Individual.interface';
 
 
 @Component({
@@ -10,18 +13,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
-  game!: any;
+  game!: VideojuegoIndividual;
 
   constructor(
-    private router: Router,
+    private gameService:GameService, private activateRoute: ActivatedRoute
   ) {
-    if(this.router.getCurrentNavigation()!.extras.state){
-      this.game = this.router.getCurrentNavigation()!.extras.state;
-    } else{
-      //llamar api id y cargar this.game usar pipe().first().subscribe para no mantener subscripcion activa!
-    }
   }
   ngOnInit(): void {
+    this.activateRoute.params.
+    pipe(
+      switchMap(({id})=> this.gameService.getGamesById(id))).subscribe(game=>this.game=game)
   }
 
 }

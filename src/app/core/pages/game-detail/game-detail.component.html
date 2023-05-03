@@ -1,29 +1,25 @@
-<!-- <div class="">
-  <input class="col-md-3 mt-2" Placeholder="Titulo" >
-</div>
-<img mat-card-image src={{juego.background_image}}>
-<textarea class="col-md-3 mt-5 espacioIZQ" ></textarea>
- -->
-<!-- {{game | json}} -->
-<div class="container my-5">
-  <div class="row">
-    <div class="col-md-6">
-      <h1>{{game.name}}</h1>
-      <img src="{{game.background_image}}" alt="Imagen del juego" class="img-fluid my-3">
-      <h2>Generos</h2>
-      <ul>
-        <li *ngFor="let genre of game.genres">{{genre.name}}</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h2>Descripción</h2>
-      <div class="input-group">
-        <textarea class="form-control" rows="8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu nulla vel augue fringilla tincidunt. Sed ac ornare purus. Integer in metus at velit euismod venenatis. In ultrices augue eu nisi gravida, et auctor leo imperdiet.</textarea>
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">Guardar</button>
-          <button class="btn btn-secondary" type="button">Cancelar</button>
+<body>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>{{game.name}}</h1>
+        <img  src="{{game.background_image}}" alt="Imagen del juego" class="img-fluid my-3">
+        <h2>Generos</h2>
+        <ul>
+          <li *ngFor="let genre of game.genres">{{genre.name}}</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h2>Descripción</h2>
+        <div class="input-group">
+          <textarea class="form-control" rows="8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu nulla vel augue fringilla tincidunt. Sed ac ornare purus. Integer in metus at velit euismod venenatis. In ultrices augue eu nisi gravida, et auctor leo imperdiet.</textarea>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">Guardar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
+

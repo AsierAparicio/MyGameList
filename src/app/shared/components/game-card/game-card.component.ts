@@ -8,8 +8,10 @@ import { Result } from 'src/app/interfaces/Videojuego.interfaces';
   mat-card {
     margin-top: 20px;
     max-width: 100%;
+    background-color:#292929;
   }
   .card-container {
+color:#e7e9ee;
 width: 100%;
 display: flex;
 flex-direction: column;
