@@ -21,4 +21,16 @@ export class GameService {
   getBestGames(num: number): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?key=${this.apiKey}&page=${num}&ordering=-rating`)
   }
+
+  getFiltroGenero(num: number, genero: string): Observable<Videojuego> {
+    return this.http.get<Videojuego>(`https://api.rawg.io/api/games?genres=${genero}&key=${this.apiKey}&page=${num}`)
+  }
+
+  getFiltroPlataforma(num: number, plataforma: string): Observable<Videojuego> {
+    return this.http.get<Videojuego>(`https://api.rawg.io/api/games?platforms=${plataforma}&key=${this.apiKey}&page=${num}`)
+  }
+
+  getFiltroPlataformaGenero(num: number, genero: string, plataforma: string): Observable<Videojuego> {
+    return this.http.get<Videojuego>(`https://api.rawg.io/api/games?platforms=${plataforma}&genres=${genero}&key=${this.apiKey}&page=${num}`)
+  }
 }
