@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Videojuego } from '../../interfaces/Videojuego.interfaces';
+
 @Injectable({
   providedIn: 'root'
 })
-export class GameService {
+export class   GameService {
   private apiKey = '2aedb5eb15024be8b85aaa66f4c320d2';
 
   constructor(private http: HttpClient) { }
