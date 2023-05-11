@@ -7,12 +7,16 @@ import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 @NgModule({
   imports: [
     SharedModule,
     MaterialModule,
     CommonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    RouterLink
   ],
   declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent]
