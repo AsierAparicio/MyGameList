@@ -152,7 +152,7 @@ export class GameListComponent implements OnInit {
       this.juegos = data.results
     });
   }
-  
+
   genero = '';
   plataforma = '';
   orden = 'relevancia';
