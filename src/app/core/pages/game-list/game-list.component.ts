@@ -17,7 +17,6 @@ import { Result } from 'src/app/interfaces/Videojuego.interfaces';
       button{
       margin:1%;
     }
-    * {background-color: #da4167}
   `]
 })
 export class GameListComponent implements OnInit {
@@ -78,7 +77,7 @@ export class GameListComponent implements OnInit {
     this.num = 1
     this.cargar()
   }
-  
+
   genero = '';
   plataforma = '';
 

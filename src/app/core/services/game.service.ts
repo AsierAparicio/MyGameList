@@ -27,8 +27,7 @@ export class   GameService {
 
   getGamesById(id: number): Observable<VideojuegoIndividual> {
     return this.http.get<VideojuegoIndividual>(`https://api.rawg.io/api/games/${id}?key=${this.apiKey}`)
-
-
+  }
   getFiltroGenero(num: number, genero: string): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?genres=${genero}&key=${this.apiKey}&page=${num}`)
   }
