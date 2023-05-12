@@ -23,6 +23,10 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'detail/:id',
+    component: GameDetailComponent,
+  },
+  {
     path: '**',
     redirectTo: ''
   }

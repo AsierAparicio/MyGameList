@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Videojuego } from '../../interfaces/Videojuego.interfaces';
 
+import { VideojuegoIndividual } from 'src/app/interfaces/Videojuego_Individual.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +25,10 @@ export class   GameService {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?key=${this.apiKey}&page=${num}&ordering=-rating`)
   }
 
+  getGamesById(id: number): Observable<VideojuegoIndividual> {
+    return this.http.get<VideojuegoIndividual>(`https://api.rawg.io/api/games/${id}?key=${this.apiKey}`)
+
+
   getFiltroGenero(num: number, genero: string): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?genres=${genero}&key=${this.apiKey}&page=${num}`)
   }
@@ -33,5 +39,6 @@ export class   GameService {
 
   getFiltroPlataformaGenero(num: number, genero: string, plataforma: string): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?platforms=${plataforma}&genres=${genero}&key=${this.apiKey}&page=${num}`)
+
   }
 }
