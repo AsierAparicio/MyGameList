@@ -1,23 +1,18 @@
 
-<mat-card class="card-container">
-  <mat-card-header class="mat-card-header">
-      <mat-card-title class="mat-card-title">{{juego.name}}</mat-card-title>
-      <mat-card-subtitle>{{juego.rating}}</mat-card-subtitle>
-  </mat-card-header>
+<mat-card class="shadow rounded image-container card-container" [routerLink]="['detail/',juego.id]" [state]=juego >
+  
 
-  <img class="image-container" mat-card-image src={{juego.background_image}}>
+  <img class="img-fluid" mat-card-image src={{juego.background_image}}>
+  <div class="card-content">
+    <h2>{{juego.name}}</h2>
+    <p>{{juego.playtime}}</p>
+  </div>
 
-  <mat-card-content>
-      <h3>{{juego.released}}</h3>
-     
-  </mat-card-content>
-
-  <mat-card-actions>
-      <button mat-button color="warn" >
-          Leer mas...
-      </button>
-      <button mat-button color="info">
-          Comprar
-      </button>
-  </mat-card-actions>
+  <div class="d-flex justify-content-between">
+    <mat-card-title class="mat-card-title p-2">{{juego.released}}</mat-card-title>
+    <mat-card-title class="mat-card-title ml p-2">{{juego.metacritic}}</mat-card-title>
+  </div>
+  <div class="d-flex align-self-center">
+    <mat-card-title class="mat-card-title pr p-2">{{juego.name}}</mat-card-title>
+  </div>
 </mat-card>

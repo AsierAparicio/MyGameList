@@ -7,12 +7,14 @@ import { LoginService } from 'src/app/core/services/login.service';
   styles: [`
     mat-toolbar{
       height: 10%;
+       background-color:#8794c0;
     }
     mat-form-field{
       margin-top: 1.5%;
       margin-right: 2vw;
 
     }
+
   `]
 })
 export class MenuComponent implements OnInit{

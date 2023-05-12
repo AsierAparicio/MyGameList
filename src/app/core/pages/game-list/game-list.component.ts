@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 
+
 @Component({
   selector: 'app-game-list',
   templateUrl: './game-list.component.html',
@@ -28,9 +29,17 @@ export class GameListComponent implements OnInit {
   }
 
   cargar() {
-    this.gameService.getGames(this.num).subscribe(data => {
-      this.juegos = data.results
-    });
+    if (this.genero != '' && this.plataforma != ''){
+      this.filtroGeneroPlataforma()
+    }else if (this.genero != ''){
+      this.filtroGenero()
+    }else if (this.plataforma != ''){
+      this.filtroPlataforma()
+    }else{
+      this.gameService.getGames(this.num).subscribe(data => {
+        this.juegos = data.results
+      });
+    }
   }
 
   siguiente() {
@@ -45,5 +54,31 @@ export class GameListComponent implements OnInit {
     this.num--
     this.cargar()
   }
+
+  filtroGenero() {
+    this.gameService.getFiltroGenero(this.num, this.genero).subscribe(data => {
+      this.juegos = data.results
+    });
+  }
+
+  filtroPlataforma() {
+    this.gameService.getFiltroPlataforma(this.num, this.plataforma).subscribe(data => {
+      this.juegos = data.results
+    });
+  }
+
+  filtroGeneroPlataforma() {
+    this.gameService.getFiltroPlataformaGenero(this.num, this.genero, this.plataforma).subscribe(data => {
+      this.juegos = data.results
+    });
+  }
+
+  filtrar() {
+    this.num = 1
+    this.cargar()
+  }
+
+  genero = '';
+  plataforma = '';
 
 }

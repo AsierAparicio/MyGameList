@@ -1,0 +1,24 @@
+.espacioIZQ{
+  margin-left: 60%;
+}
+.margen{
+  margin-left:7%;
+}
+body{
+  background-color: #546794;
+}
+.color2{
+  background-color: #8794c0;
+}
+.fuente{
+  font-size: 2.7rem;
+}
+.star {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="%23f8ce0b" d="M7.999 12.767l-3.908 2.306 1.05-4.853L.589 6.927l4.891-.42L7.999 2.25l2.518 4.258 4.891.42-3.552 3.293 1.05 4.853z"/></svg>');
+
+  background-size: contain;
+  cursor: pointer;
+}
