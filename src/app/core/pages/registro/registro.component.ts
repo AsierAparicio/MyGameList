@@ -1,13 +1,11 @@
-import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import { createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
   styles: [`
   .login-card {
     max-width: 500px;
@@ -15,7 +13,7 @@ import { Router } from '@angular/router';
 }
   `]
 })
-export class LoginComponent implements OnInit {
+export class RegistroComponent implements OnInit{
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -31,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.login(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/menu']); this.loginService.setUser(this.loginForm.value.email)}).catch(error => console.log(error));
+    this.loginService.register(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/login'])}).catch(error => console.log(error));
   }
 
 }

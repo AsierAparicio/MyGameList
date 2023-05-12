@@ -7,8 +7,9 @@ import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     SharedModule,
@@ -16,9 +17,11 @@ import { RouterLink } from '@angular/router';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
+    RouterModule 
     RouterLink
   ],
-  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent],
-  exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent]
+  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent],
+  exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent]
 })
 export class CoreModule { }

@@ -4,6 +4,7 @@ import { GameListComponent } from './core/pages/game-list/game-list.component';
 import { GameDetailComponent } from './core/pages/game-detail/game-detail.component';
 import { HomeComponent } from './core/pages/home/home.component';
 import { LoginComponent } from './core/pages/login/login.component';
+import { RegistroComponent } from './core/pages/registro/registro.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
   },
   {
     path: 'detail/:id',
