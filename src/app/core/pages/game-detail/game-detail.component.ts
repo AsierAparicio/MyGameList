@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { GameService } from '../../services/game.service';
 import { switchMap } from "rxjs";
 import { VideojuegoIndividual } from 'src/app/interfaces/Videojuego_Individual.interface';
+import { Meta } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ import { VideojuegoIndividual } from 'src/app/interfaces/Videojuego_Individual.i
 })
 export class GameDetailComponent implements OnInit {
   game!: VideojuegoIndividual;
-
+  rating = 0;
   constructor(
     private gameService:GameService, private activateRoute: ActivatedRoute
   ) {
@@ -24,5 +26,19 @@ export class GameDetailComponent implements OnInit {
     pipe(
       switchMap(({id})=> this.gameService.getGamesById(id))).subscribe(game=>this.game=game)
   }
+  getColor(): { color: string } {
+    if (this.game.metacritic == null) {
+      return { color: 'gray' };
+    } else if (this.game.metacritic >= 85) {
+      return { color: 'green' };
+    } else if (this.game.metacritic <= 84) {
+      return { color: 'yellow' };
+    } else if(this.game.metacritic <= 50){
+      return { color: 'red' };
+    }else{
+      return { color: 'grey' };;
+    }
+  }
+
 
 }

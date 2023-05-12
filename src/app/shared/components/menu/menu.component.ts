@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: [`
     mat-toolbar{
       height: 10%;
-       background-color:black;
+       background-color:#8794c0;
     }
     mat-form-field{
       margin-top: 1.5%;
