@@ -16,12 +16,16 @@
         
     </mat-form-field>
 
-    <button mat-button [matMenuTriggerFor]="usuario">
-       usuario
+    <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario">
+       {{user}}
        <mat-menu #usuario="matMenu">
         <button mat-menu-item>Mis Juegos</button>
         <button mat-menu-item>Ajustes</button>
-        <button mat-menu-item routerLink="/login">Cerrar Sesion</button>
+        <button mat-menu-item (click)="logOut()">Cerrar Sesion</button>
       </mat-menu>
     </button>
+
+    <button *ngIf="!log" mat-button routerLink="/login">
+      Iniciar Sesion
+   </button>
 </mat-toolbar>

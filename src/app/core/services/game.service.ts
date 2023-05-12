@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Videojuego } from '../../interfaces/Videojuego.interfaces';
+import { VideojuegoIndividual } from 'src/app/interfaces/VideojuegoIndividual.interfeces';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +21,9 @@ export class GameService {
 
   getBestGames(num: number): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?key=${this.apiKey}&page=${num}&ordering=-rating`)
+  }
+
+  getGamesById(id: number): Observable<VideojuegoIndividual> {
+    return this.http.get<VideojuegoIndividual>(`https://api.rawg.io/api/games/${id}?key=${this.apiKey}`)
   }
 }
