@@ -1,56 +1,66 @@
 
 
 <app-menu></app-menu>
-<mat-form-field>
-    <mat-label>Filtrar por Genero</mat-label>
-    <mat-select [(value)]="genero">
-        <mat-option></mat-option>
-        <mat-option value="action">Acción</mat-option>
-        <mat-option value="indie">Indie</mat-option>
-        <mat-option value="adventure">Aventura</mat-option>
-        <mat-option value="role-playing-games-rpg">RPG</mat-option>
-        <mat-option value="strategy">Estrategia</mat-option>
-        <mat-option value="shooter">Shooter</mat-option>
-        <mat-option value="casual">Casual</mat-option>
-        <mat-option value="simulation">Simulación</mat-option>
-        <mat-option value="puzzle">Puzzle</mat-option>
-        <mat-option value="arcade">Arcade</mat-option>
-        <mat-option value="platformer">Plataforma</mat-option>
-        <mat-option value="massively-multiplayer">Multijugador</mat-option>
-        <mat-option value="racing">Carreras</mat-option>
-        <mat-option value="sports">Deportes</mat-option>
-        <mat-option value="fighting">Lucha</mat-option> 
-        <mat-option value="family">Familia</mat-option>
-        <mat-option value="board-games">Juegos de mesa</mat-option>
-        <mat-option value="card">Cartas</mat-option>
-    </mat-select>
-</mat-form-field>
-<mat-form-field>
-    <mat-label>Select an option</mat-label>
-    <mat-select [(value)]="plataforma">
-        <mat-option></mat-option>
-        <mat-option value="1">Xbox-uno</mat-option>
-        <mat-option value="186">Xbox Series S/X</mat-option>
-        <mat-option value="3">IOS</mat-option>
-        <mat-option value="4">Pc</mat-option>
-        <mat-option value="7">Nintendo Switch</mat-option>
-        <mat-option value="8">Nintendo 3DS</mat-option>
-        <mat-option value="9">Nintendo DS</mat-option>
-        <mat-option value="10">Wii-U</mat-option>
-        <mat-option value="11">Wii</mat-option>
-        <mat-option value="27">Ps1</mat-option>
-        <mat-option value="15">Ps2</mat-option>
-        <mat-option value="16">Ps3</mat-option>
-        <mat-option value="18">Ps4</mat-option>
-        <mat-option value="21">Android</mat-option>
-        <mat-option value="26">Game Boy</mat-option>
-    </mat-select>
-</mat-form-field>
 
-<button mat-flat-button extended (click)="filtrar()">
-Filtrar
-</button>
+<h1 class="titulo p-5">Lista de Juegos</h1>
 
+<div class="forms">
+    <mat-form-field  class="p-2">
+        <mat-label>Filtrar por Genero</mat-label>
+        <mat-select [(value)]="genero">
+            <mat-option value="action">Acción</mat-option>
+            <mat-option value="indie">Indie</mat-option>
+            <mat-option value="adventure">Aventura</mat-option>
+            <mat-option value="role-playing-games-rpg">RPG</mat-option>
+            <mat-option value="strategy">Estrategia</mat-option>
+            <mat-option value="shooter">Shooter</mat-option>
+            <mat-option value="casual">Casual</mat-option>
+            <mat-option value="simulation">Simulación</mat-option>
+            <mat-option value="puzzle">Puzzle</mat-option>
+            <mat-option value="arcade">Arcade</mat-option>
+            <mat-option value="platformer">Plataforma</mat-option>
+            <mat-option value="massively-multiplayer">Multijugador</mat-option>
+            <mat-option value="racing">Carreras</mat-option>
+            <mat-option value="sports">Deportes</mat-option>
+            <mat-option value="fighting">Lucha</mat-option> 
+            <mat-option value="family">Familia</mat-option>
+            <mat-option value="board-games">Juegos de mesa</mat-option>
+            <mat-option value="card">Cartas</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="p-2">
+        <mat-label>Filtrar por Plataforma</mat-label>
+        <mat-select [(value)]="plataforma">
+            <mat-option value="1">Xbox-One</mat-option>
+            <mat-option value="186">Xbox Series S/X</mat-option>
+            <mat-option value="3">IOS</mat-option>
+            <mat-option value="4">Pc</mat-option>
+            <mat-option value="7">Nintendo Switch</mat-option>
+            <mat-option value="8">Nintendo 3DS</mat-option>
+            <mat-option value="9">Nintendo DS</mat-option>
+            <mat-option value="10">Wii-U</mat-option>
+            <mat-option value="11">Wii</mat-option>
+            <mat-option value="27">Ps1</mat-option>
+            <mat-option value="15">Ps2</mat-option>
+            <mat-option value="16">Ps3</mat-option>
+            <mat-option value="18">Ps4</mat-option>
+            <mat-option value="21">Android</mat-option>
+            <mat-option value="26">Game Boy</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="p-2">
+        <mat-label>Ordenar por:</mat-label>
+        <mat-select [(value)]="orden">
+            <mat-option value="relevancia">Relevancia</mat-option>
+            <mat-option value="fecha">Fecha: Reciente</mat-option>
+            <mat-option value="puntuacion">Puntuación</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-flat-button extended (click)="filtrar()">
+    Filtrar
+    </button>
+</div>
   <div class="align-items-center"
     fxLayout="row wrap"
     fxLayout.xs="column"

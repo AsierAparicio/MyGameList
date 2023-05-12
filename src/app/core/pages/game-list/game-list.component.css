@@ -1,0 +1,18 @@
+.titulo {
+    font-size: 3vw; /* Aumenta el tamaño de fuente a 36 píxeles */
+}
+
+.forms {
+    padding-left: 6vw;
+}
+
+.botonera{
+    display: flex;
+    justify-content: center;
+}
+.num{
+    margin-top:1.5%;
+}
+button{
+    margin:1%;
+}
