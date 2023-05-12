@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {TextFieldModule} from '@angular/cdk/text-field';
 
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [],
   exports: [
@@ -27,7 +29,11 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
+
     TextFieldModule,
+
+    MatSelectModule
+
   ]
 })
 export class MaterialModule { }
