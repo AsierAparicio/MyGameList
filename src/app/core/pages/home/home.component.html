@@ -1,13 +1,15 @@
+<app-menu></app-menu>
 <div class="container-fluid">
   <div style="display: flex;">
-    <div *ngFor="let noticia of noticias" >
+    <div *ngFor="let noticia of noticias">
       <a href="{{noticia.url}}" style="text-decoration: none;display:flex; justify-content: center;">
-        <mat-card style="margin-top: 20px; background-color:coral; width: 25%; min-width: 300px;" >
+        <mat-card style="margin-top: 20px; background-color:coral; width: 25%; min-width: 300px;">
           <mat-card-header>
             <mat-card-title>{{noticia.title}}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <img src="{{noticia.urlToImage}}" alt="{{noticia.author}}" style="height: auto; width: 20%; min-width: 200px; ">
+            <img src="{{noticia.urlToImage}}" alt="{{noticia.author}}"
+              style="height: auto; width: 20%; min-width: 200px; ">
             <p>{{noticia.description}}</p>
           </mat-card-content>
         </mat-card>
@@ -22,12 +24,12 @@
           Listas disponibles
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let lista of listas" >
+          <li class="list-group-item" *ngFor="let lista of listas">
             <mat-card>
               <button mat-button style="height: auto;" routerLink="/{{lista}}">
                 <div>
                   <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{lista.icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;" >{{lista.nombre}}</h2>
+                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{lista.nombre}}</h2>
                 </div>
               </button>
             </mat-card>
@@ -46,29 +48,12 @@
         </select>
       </nav>
 
-      
-      <div fxLayout="row wrap"
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    fxLayoutGap="20px">
 
-    <div fxFlex="20" 
-        fxFlex.lg="20"
-        fxFlex.sm="40"
-        *ngFor="let juego of juegos">
-        <app-game-card [juego]="juego">
-        </app-game-card>
-        <ul style="list-style-type: none; display: flex; align-items: center;">
-          <li *ngFor="let lista of listas" style="margin-left: 5px;">
-            <mat-card>
-              <button mat-button >
-                    <mat-icon matListItemIcon style="margin-right: 0px;">{{lista.icon}}</mat-icon>
-              </button>
-            </mat-card>
-          </li>
-      </ul>
-    </div>
-</div>
+      <div class="align-items-center" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="1.3vw">
+          <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="40" *ngFor="let juego of juegos">
+              <app-game-card [juego]="juego"></app-game-card>
+          </div>
+      </div>
     </div>
 
   </div>
