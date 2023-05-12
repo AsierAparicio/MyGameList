@@ -18,8 +18,7 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule 
-    RouterLink
+    RouterModule
   ],
   declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent]
