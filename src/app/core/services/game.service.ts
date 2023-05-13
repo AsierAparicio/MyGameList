@@ -69,10 +69,13 @@ export class   GameService {
   getFiltroPlataformaGenero(num: number, genero: string, plataforma: string): Observable<Videojuego> {
     return this.http.get<Videojuego>(`https://api.rawg.io/api/games?platforms=${plataforma}&genres=${genero}&key=${this.apiKey}&page=${num}`)
   }
-  
-  
+
   
   getGamesById(id: number): Observable<VideojuegoIndividual> {
     return this.http.get<VideojuegoIndividual>(`https://api.rawg.io/api/games/${id}?key=${this.apiKey}`)
+  }
+
+  search(num: number, input: string): Observable<Videojuego> {
+    return this.http.get<Videojuego>(`https://api.rawg.io/api/games?key=${this.apiKey}&page=${num}&search=${input}`)
   }
 }

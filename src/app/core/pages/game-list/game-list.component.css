@@ -6,6 +6,11 @@
     padding-left: 6vw;
 }
 
+.input {
+    margin-right: 8.5vw;
+    width: 25vw;
+}
+
 .botonera{
     flex-direction: row;
     display: flex;

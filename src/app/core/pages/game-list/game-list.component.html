@@ -1,8 +1,14 @@
 
 
 <app-menu></app-menu>
-
-<h1 class="titulo p-5">Lista de Juegos</h1>
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="titulo p-5">Lista de Juegos</h1>
+  
+    <mat-form-field class="example-s-width input" appearance="fill">
+      <mat-label>Buscar</mat-label>
+      <input type="text" placeholder="Inserte titulo" aria-label="Buscar" matInput #titulo (keyup)="buscar(titulo.value)">
+    </mat-form-field>
+</div>
 
 <div class="forms">
     <mat-form-field  class="p-2">
