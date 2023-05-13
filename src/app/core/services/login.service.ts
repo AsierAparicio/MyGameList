@@ -8,6 +8,7 @@ export class LoginService {
 
   log: boolean = false;
   user: string = '';
+  userId: string = '0';
   constructor(private auth: Auth) { }
 
   register({email, password}: any){
@@ -18,17 +19,23 @@ export class LoginService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  setUser(name: string){
+  setUser(name: string, id: string){
     this.user = name;
     this.log = true;
+    this.userId = id;
   }
 
   getUser(){
     return this.user 
   }
 
+  getId(){
+    return this.userId
+  }
+
   logOut(){
     this.user = '';
     this.log = false;
+    this.userId = '0';
   }
 }
