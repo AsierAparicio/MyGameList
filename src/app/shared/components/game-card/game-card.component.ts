@@ -18,4 +18,18 @@ export class GameCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  getColor(): { color: string } {
+    if (this.juego.metacritic == null) {
+      return { color: 'gray' };
+    } else if (this.juego.metacritic >= 85) {
+      return { color: 'green' };
+    } else if (this.juego.metacritic <= 84) {
+      return { color: 'yellow' };
+    } else if(this.juego.metacritic <= 50){
+      return { color: 'red' };
+    }else{
+      return { color: 'grey' };;
+    }
+  }
+
 }

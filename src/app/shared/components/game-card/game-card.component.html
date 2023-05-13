@@ -18,7 +18,7 @@
 
   <div class="d-flex justify-content-between">
     <mat-card-title class="mat-card-title p-2">{{juego.released}}</mat-card-title>
-    <mat-card-title class="mat-card-title ml p-2">{{juego.metacritic}}</mat-card-title>
+    <mat-card-title class="mat-card-title ml p-2" [style.color]="getColor().color">{{juego.metacritic}}</mat-card-title>
   </div>
   <div class="d-flex align-self-center">
     <mat-card-title class="mat-card-title pr p-2">{{juego.name}}</mat-card-title>
