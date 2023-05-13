@@ -157,4 +157,17 @@ export class GameListComponent implements OnInit {
   plataforma = '';
   orden = 'relevancia';
 
+  input = '';
+
+  buscar(titulo: string){
+    let result = titulo.replaceAll(" ", "%20");
+    this.input = result;
+    this.searchGod()
+  }
+
+  searchGod() {
+    this.gameService.search(this.num, this.input).subscribe(data => {
+      this.juegos = data.results
+    });
+  }
 }

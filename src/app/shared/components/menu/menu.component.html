@@ -10,12 +10,6 @@
 
     <span class="spacer"></span>
 
-    <mat-form-field  class="example-s-width" appearance="fill">
-        <mat-label>Buscar</mat-label>
-        <input type="text" placeholder="Inserte titulo" aria-label="Buscar" matInput>
-        
-    </mat-form-field>
-
     <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario">
        {{user}}
        <mat-menu #usuario="matMenu">
