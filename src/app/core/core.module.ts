@@ -10,7 +10,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { RouterModule } from '@angular/router';
+import { BbddService } from './services/bbdd.service';
+BbddService
 @NgModule({
+  providers: [BbddService],
   imports: [
     SharedModule,
     MaterialModule,

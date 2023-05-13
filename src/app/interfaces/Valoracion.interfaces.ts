@@ -1,12 +1,12 @@
 export default interface valoracion{
     id?: string;
     userID: string;
-    gameID: string;
-    
+    gameID: number;
+
     //Datos Formulario
     valoracion: number;
     critica: string;
-    listaID: number; 
+    listaID: number;
 
     //Datos Juego
     background_image: string;

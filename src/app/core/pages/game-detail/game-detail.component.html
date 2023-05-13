@@ -27,14 +27,31 @@
       <div class="col-md-5 margen">
         <h2>Critica</h2>
         <div class="input-group">
-          <textarea class="form-control" rows="8"></textarea>
+          <textarea [(ngModel)]="contenidoTextarea"class="form-control"></textarea>
         </div>
         <star-rating [rating]="0" (ratingChange)="onRatingChange($event)"></star-rating>
+
+        <label>¿En qué lista lo quieres meter?</label>
+        <div>
+          <label>
+            <input type="radio" name="lista" value=1 (change)="onChange($event)"> Favoritos
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="lista" value=2 (change)="onChange($event)"> Abandonados
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="lista" value=3 (change)="onChange($event)"> Más tarde
+          </label>
+        </div>
+
+
         <div class="d-flex justify-content-center pt-5">
-          <button class="btn btn-primary" type="button">Guardar</button>
-          <button class="btn btn-secondary text-center" type="button">
-            Cancelar
-          </button>
+          <button class="btn btn-primary" type="button"(click)="onSubmit()">Guardar</button>
+          <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>
       </div>
     </div>
