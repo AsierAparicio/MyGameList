@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import { HttpClient } from '@angular/common/http';
@@ -6,17 +6,15 @@ import { GameService } from '../../services/game.service';
 import { switchMap } from "rxjs";
 import { VideojuegoIndividual } from 'src/app/interfaces/Videojuego_Individual.interface';
 import { Meta } from '@angular/platform-browser';
-
-
-
 @Component({
   selector: 'app-game-detail',
   templateUrl: './game-detail.component.html',
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
+  currentRating: number = 0;
+
   game!: VideojuegoIndividual;
-  rating = 0;
   constructor(
     private gameService:GameService, private activateRoute: ActivatedRoute
   ) {
@@ -39,6 +37,8 @@ export class GameDetailComponent implements OnInit {
       return { color: 'grey' };;
     }
   }
-
+  onRatingChange(rating: number) {
+    console.log('Valoración seleccionada: ' + rating);
+  }
 
 }
