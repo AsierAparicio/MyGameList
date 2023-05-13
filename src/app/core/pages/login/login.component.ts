@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.login(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/menu']); this.loginService.setUser(this.loginForm.value.email)}).catch(error => console.log(error));
+    this.loginService.login(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/menu']); this.loginService.setUser(this.loginForm.value.email, response.user.uid)}).catch(error => console.log(error));
   }
 
 }
