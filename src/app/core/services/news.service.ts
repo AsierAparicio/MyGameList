@@ -18,6 +18,6 @@ export class   NewsService {
     const dia = ('0' + (fechaActual.getDay()-1)).slice(-2); // Agregamos un cero al día si es necesario, y tomamos los últimos 2 dígitos
     const fechaActualFormateada = `${anyo}-${mes}-${dia}`;
 
-    return this.http.get<Noticias>(`https://newsapi.org/v2/everything?q=videojuegos&from=2023-04-19&sortBy=publishedAt&apiKey=${this.apiKey}&pageSize=4`)
+    return this.http.get<Noticias>(`https://newsapi.org/v2/everything?q=videojuegos&from=2023-05-01&apiKey=${this.apiKey}&pageSize=4`)
   }
 }

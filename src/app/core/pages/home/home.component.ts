@@ -3,6 +3,7 @@ import { GameService } from '../../services/game.service';
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import { NewsService } from '../../services/news.service';
 import { Article } from '../../../interfaces/Noticias.interfaces';
+import { LoginService } from '../../services/login.service';
 
 
 interface Option {
@@ -14,50 +15,22 @@ interface Option {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  styles: [`
-    .caja-listas{
-      display: flex;
-      justify-content: center;
-    }
-    .custom-mt-15 {
-      margin-top: 15px;
-    }
-    .caja-juegos{
-      max-width: 70;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin: 15px 0 0 0;
-    }
-    .home{
-      display: flex;
-      flex-direction: row;
-      margin: 10px;
-    }
-    .card-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-sizing: border-box;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      overflow: hidden;
-    }
-  `]
-
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private  newsService: NewsService, private gameService: GameService,) { }
+  constructor(private newsService: NewsService,
+    private gameService: GameService,
+    private loginService: LoginService) { }
+
+  userID = this.loginService.getId()
   juegos: Result[] = []
   noticias: Article[] = []
   listas: { icon: string, nombre: string }[] = [
-  { icon : "favorite", nombre : "Seguidos"},
-  { icon : "watch_later", nombre : "Más tarde"},
-  { icon : "clear", nombre : "Abandonados"},
-  
-] 
+    { icon: "favorite", nombre: "seguidos" },
+    { icon: "watch_later", nombre: "guardados" },
+    { icon: "clear", nombre: "abandonados" },
+
+  ]
   //update
   num: number = 1
   ngOnInit(): void {
@@ -103,8 +76,8 @@ export class HomeComponent implements OnInit {
   selectedOption: string | undefined;
 
   options: Option[] = [
-    { value: 'option1', label: 'Relevancia'},
-    { value: 'option2', label: 'Nota'},
+    { value: 'option1', label: 'Relevancia' },
+    { value: 'option2', label: 'Nota' },
     { value: 'option3', label: 'Fecha de estreno' }
   ];
 

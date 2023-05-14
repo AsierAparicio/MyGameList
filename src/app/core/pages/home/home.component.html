@@ -1,17 +1,17 @@
 
 <app-menu></app-menu>
 <div class="container-fluid">
-  <div style="display: flex;">
+  <div style="display: flex; justify-content: center;">
     <div *ngFor="let noticia of noticias">
-      <a href="{{noticia.url}}" style="text-decoration: none;display:flex; justify-content: center;">
-        <mat-card style="margin-top: 20px; background-color:purple; width: 25%; min-width: 300px;">
+      <a href="{{noticia.url}}" style="text-decoration: none;display:flex; width: 90%; justify-content: center; margin : auto; max-width: 300px;">
+        <mat-card style="margin-top: 20px; background-color:dimgray; width: auto">
           <mat-card-header>
             <mat-card-title>{{noticia.title}}</mat-card-title>
           </mat-card-header>
-          <mat-card-content>
+          <mat-card-content style="text-decoration: none; justify-content: center;">
             <img src="{{noticia.urlToImage}}" alt="{{noticia.author}}"
-              style="height: auto; width: 20%; min-width: 200px; ">
-            <p>{{noticia.description}}</p>
+              style="height: auto; width: 100% ">
+            
           </mat-card-content>
         </mat-card>
       </a>
@@ -27,7 +27,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item" *ngFor="let lista of listas">
             <mat-card>
-              <button mat-button style="height: auto;" routerLink="/{{lista}}">
+              <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
                 <div>
                   <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{lista.icon}}</mat-icon>
                   <h2 style="margin-left: 0px; margin-bottom: 0px;">{{lista.nombre}}</h2>

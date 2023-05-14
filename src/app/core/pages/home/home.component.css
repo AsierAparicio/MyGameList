@@ -1,0 +1,18 @@
+.caja-listas{
+    display: flex;
+    justify-content: center;
+  }
+  .custom-mt-15 {
+    margin-top: 15px;
+  }
+  .caja-juegos{
+    max-width: 70;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 15px 0 0 0;
+  }
+  .home{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+  }

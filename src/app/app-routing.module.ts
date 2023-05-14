@@ -5,10 +5,12 @@ import { GameDetailComponent } from './core/pages/game-detail/game-detail.compon
 import { HomeComponent } from './core/pages/home/home.component';
 import { LoginComponent } from './core/pages/login/login.component';
 import { RegistroComponent } from './core/pages/registro/registro.component';
+import { GameListPersonalComponent } from './core/pages/game-list-personal/game-list-personal.component';
+
 const routes: Routes = [
   {
     path: '',
-    component: GameListComponent,
+    component: HomeComponent,
     pathMatch:'full'
   },
   {
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: GameDetailComponent,
+  },
+  {
+    path: 'abandonados/:userId',
+    component: GameListPersonalComponent,
   },
   {
     path: '**',
