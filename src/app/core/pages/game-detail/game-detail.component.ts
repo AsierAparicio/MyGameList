@@ -88,14 +88,16 @@ export class GameDetailComponent implements OnInit {
       this.Valoracion.valoracion=this.rating;
       this.Valoracion.name=this.game.name;
       this.Valoracion.critica=this.contenidoTextarea;
-      const respose=await this.BbddService.addValoracion(this.Valoracion);
+      const respose=await this.BbddService.setValoracion(this.Valoracion);
       console.log(respose);
+      //redireccionar fuera con un mensaje de se a guardado correctamente
     }else{
+      //añadir mensaje de que tienes que iniciar sesion
+      //redireccionar al login
       console.log("maricon");
 
     }
 
 
   }
-
 }
