@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Firestore,collection,addDoc } from '@angular/fire/firestore';
-import { getDocs, query, where } from 'firebase/firestore';
+import { Firestore,collection,addDoc,collectionData, query, where, getDocs } from '@angular/fire/firestore';
+import { doc, setDoc } from 'firebase/firestore';
+import { Observable } from 'rxjs';
+
 import valoracion from 'src/app/interfaces/Valoracion.interfaces';
 import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 
@@ -37,4 +39,14 @@ async select(user: string, lista: number): Promise<Valoracion[]> {
 }
 
 
+
+setValoracion(valoracion:valoracion){
+  const ValRef=collection(this.firestore,'Valoraciones');
+  return setDoc(doc(ValRef, "EkfKMEpH574LEajfy0SL"), valoracion)
+}
+
+// getValoraciones():Observable<valoracion[]{
+//   const ValRef=collection(this.firestore,'Valoraciones');
+//   return collectionData(ValRef,{id:'gameID'}) as Observable<valoracion[]>;
+// }
 }

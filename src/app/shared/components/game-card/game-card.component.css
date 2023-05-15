@@ -3,7 +3,7 @@ mat-card {
     width: 100%;
     height: 89%;
 }
-  
+
 .mat-card-title {
   color: white;
 }
@@ -47,6 +47,11 @@ mat-card {
 
 .card-container:hover .card-content {
   opacity: 1;
+}
+
+.img-fluid{
+  object-fit: cover;
+  aspect-ratio: 4/3;
 }
 /*
 .mat-card-header {
