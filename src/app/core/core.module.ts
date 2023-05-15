@@ -11,7 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { RouterModule } from '@angular/router';
 import { BbddService } from './services/bbdd.service';
-BbddService
+import { GameListPersonalComponent } from './pages/game-list-personal/game-list-personal.component';
+
+
 @NgModule({
   providers: [BbddService],
   imports: [
@@ -23,7 +25,7 @@ BbddService
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent],
+  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent]
 })
 export class CoreModule { }
