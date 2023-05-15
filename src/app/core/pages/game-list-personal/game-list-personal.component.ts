@@ -71,12 +71,14 @@ export class GameListPersonalComponent implements OnInit{
 
     console.log(variable);
     var test = this.bbddService.select( variable, 1);
-    var test2 = test.then;
-    test2.forEach((valoracion) => {
-      
+    
+    test.then((objeto) => {
+      console.log(objeto)
+      this.valoraciones = objeto;
+      console.log(this.valoraciones)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
     });
-
-    console.log('a2');
   }
 
 

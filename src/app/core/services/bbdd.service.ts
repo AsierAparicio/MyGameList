@@ -14,19 +14,27 @@ addValoracion(valoracion:valoracion){
   return addDoc(ValRef,valoracion);
 }
 
-async select(user: string, lista: number) {
+
+
+async select(user: string, lista: number): Promise<Valoracion[]> {
   const valRef = collection(this.firestore, 'Valoraciones');
   const q = query(valRef, 
-                  where('userID', '==', user),
-                  where('listaID', '==', lista)
-                  );
+    where('userID', '==', user),
+    where('listaID', '==', lista)
+  );
 
   const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((valoracion) => {
-    console.log(valoracion.id, " => ", valoracion.data());
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
   });
-  
-  return(querySnapshot);
+
+  console.log(valoraciones);
+
+  return valoraciones;
 }
+
 
 }
