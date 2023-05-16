@@ -88,7 +88,7 @@ export class GameDetailComponent implements OnInit {
       this.Valoracion.valoracion=this.rating;
       this.Valoracion.name=this.game.name;
       this.Valoracion.critica=this.contenidoTextarea;
-      const respose=await this.BbddService.setValoracion(this.Valoracion);
+      const respose=await this.BbddService.selectInsertUpdate(this.Valoracion);
       console.log(respose);
       //redireccionar fuera con un mensaje de se a guardado correctamente
     }else{

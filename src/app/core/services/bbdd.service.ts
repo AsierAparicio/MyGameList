@@ -16,7 +16,10 @@ addValoracion(valoracion:valoracion){
   return addDoc(ValRef,valoracion);
 }
 
-
+setValoracion(valoracion:valoracion){
+  const ValRef=collection(this.firestore,'Valoraciones');
+  return setDoc(doc(ValRef, valoracion.userID), valoracion)
+}
 
 async select(user: string, lista: number): Promise<Valoracion[]> {
   const valRef = collection(this.firestore, 'Valoraciones');
@@ -38,15 +41,31 @@ async select(user: string, lista: number): Promise<Valoracion[]> {
   return valoraciones;
 }
 
+async selectInsertUpdate(val: valoracion){
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', val.userID),
+    where('gameID', '==', val.gameID)
+  );
 
+  const querySnapshot = await getDocs(q);
 
-setValoracion(valoracion:valoracion){
-  const ValRef=collection(this.firestore,'Valoraciones');
-  return setDoc(doc(ValRef, "EkfKMEpH574LEajfy0SL"), valoracion)
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  if (valoraciones.length <= 0){
+    this.addValoracion(val);
+    console.log('pitilin');
+  }else{
+    this.setValoracion(val);
+    console.log(valoraciones);
+  }
+
+  return valoraciones;
 }
 
-// getValoraciones():Observable<valoracion[]{
-//   const ValRef=collection(this.firestore,'Valoraciones');
-//   return collectionData(ValRef,{id:'gameID'}) as Observable<valoracion[]>;
-// }
+
 }
