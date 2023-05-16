@@ -16,9 +16,9 @@ addValoracion(valoracion:valoracion){
   return addDoc(ValRef,valoracion);
 }
 
-setValoracion(valoracion:valoracion){
+setValoracion(valoracion:valoracion, id:string){
   const ValRef=collection(this.firestore,'Valoraciones');
-  return setDoc(doc(ValRef, valoracion.userID), valoracion)
+  return setDoc(doc(ValRef, id), valoracion)
 }
 
 async select(user: string, lista: number): Promise<Valoracion[]> {
@@ -50,22 +50,49 @@ async selectInsertUpdate(val: valoracion){
 
   const querySnapshot = await getDocs(q);
 
+  var idAux:string = "test";
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    console.log("--------------------------------------");
+    console.log(valoracion.id);
+    console.log("--------------------------------------");
+    idAux = valoracion.id;
+    return valoracion;
+  });
+
+  if (valoraciones.length <= 0){
+    this.addValoracion(val);
+    console.log('insert');
+  }else{
+    console.log("--------------------------------------");
+    console.log(valoraciones[0].id);
+    console.log("--------------------------------------");
+    this.setValoracion(val, idAux);
+    console.log('update');
+  }
+
+  return valoraciones;
+}
+
+
+async selectGameAndUser(val: valoracion){
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', val.userID),
+    where('gameID', '==', val.gameID)
+  );
+
+  const querySnapshot = await getDocs(q);
+
   const valoraciones = querySnapshot.docs.map((doc) => {
     const valoracion = doc.data() as Valoracion;
     valoracion.id = doc.id;
     return valoracion;
   });
 
-  if (valoraciones.length <= 0){
-    this.addValoracion(val);
-    console.log('pitilin');
-  }else{
-    this.setValoracion(val);
-    console.log(valoraciones);
-  }
-
   return valoraciones;
 }
-
 
 }

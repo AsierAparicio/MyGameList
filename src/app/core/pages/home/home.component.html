@@ -25,12 +25,28 @@
           Listas disponibles
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let lista of listas">
+          <li class="list-group-item">
+            <mat-card>
+              <button mat-button style="height: auto;" [routerLink]="['seguidos/',this.userID]">
+                <div>
+                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[0].icon}}</mat-icon>
+                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[0].nombre}}</h2>
+                </div>
+              </button>
+            </mat-card>
+            <mat-card>
+              <button mat-button style="height: auto;" [routerLink]="['guardados/',this.userID]">
+                <div>
+                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[1].icon}}</mat-icon>
+                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[1].nombre}}</h2>
+                </div>
+              </button>
+            </mat-card>
             <mat-card>
               <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
                 <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{lista.icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{lista.nombre}}</h2>
+                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[2].icon}}</mat-icon>
+                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[2].nombre}}</h2>
                 </div>
               </button>
             </mat-card>

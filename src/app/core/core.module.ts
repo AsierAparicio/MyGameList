@@ -12,6 +12,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { RouterModule } from '@angular/router';
 import { BbddService } from './services/bbdd.service';
 import { GameListPersonalComponent } from './pages/game-list-personal/game-list-personal.component';
+import { GameListSeguidosComponent } from './pages/game-list-seguidos/game-list-seguidos.component';
+import { GameListGuardadosComponent } from './pages/game-list-guardados/game-list-guardados.component';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import { GameListPersonalComponent } from './pages/game-list-personal/game-list-
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent],
+  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent, GameListSeguidosComponent, GameListGuardadosComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent]
 })
 export class CoreModule { }

@@ -23,11 +23,6 @@ export class GameListPersonalComponent implements OnInit{
   currentUrl: string ="";
   userID ?: string ="";
   valoraciones : Valoracion[] = [];
-  /*
-  
-  
-  
-  */
 
 
   num:number=1;
@@ -70,7 +65,7 @@ export class GameListPersonalComponent implements OnInit{
     const variable = (this.userID === undefined ? "0" : this.userID )
 
     console.log(variable);
-    var test = this.bbddService.select( variable, 1);
+    var test = this.bbddService.select( variable, 2);
     
     test.then((objeto) => {
       console.log(objeto)

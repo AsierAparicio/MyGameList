@@ -29,22 +29,22 @@
         <div class="input-group">
           <textarea [(ngModel)]="contenidoTextarea"class="form-control"></textarea>
         </div>
-        <star-rating [rating]="0" (ratingChange)="onRatingChange($event)"></star-rating>
+        <star-rating [rating]="nota" (ratingChange)="onRatingChange($event)"></star-rating>
 
         <label>¿En qué lista lo quieres meter?</label>
         <div>
           <label>
-            <input type="radio" name="lista" value=1 (change)="onChange($event)"> Favoritos
+            <input [(ngModel)]="ngLista" type="radio" name="lista" value="1" (change)="onChange($event)" > Favoritos
           </label>
         </div>
         <div>
           <label>
-            <input type="radio" name="lista" value=2 (change)="onChange($event)"> Abandonados
+            <input [(ngModel)]="ngLista" type="radio" name="lista" value="2" (change)="onChange($event)"> Abandonados
           </label>
         </div>
         <div>
           <label>
-            <input type="radio" name="lista" value=3 (change)="onChange($event)"> Más tarde
+            <input [(ngModel)]="ngLista" type="radio" name="lista" value="3" (change)="onChange($event)"> Más tarde
           </label>
         </div>
 

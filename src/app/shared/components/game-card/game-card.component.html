@@ -1,8 +1,8 @@
 
-<mat-card class="shadow rounded image-container card-container" [routerLink]="['/detail/',juego.id]" [state]=juego >
+<mat-card class="shadow rounded image-container card-container">
   
 
-  <img class="img-fluid" mat-card-image src={{juego.background_image}}>
+  <img class="img-fluid" mat-card-image src={{juego.background_image}} [routerLink]="['/detail/',juego.id]" [state]=juego >
   <div class="card-content">
     <h2>{{juego.name}}</h2>
     <ul style="list-style-type: none; display: flex; justify-content: center;">
