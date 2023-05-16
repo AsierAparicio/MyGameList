@@ -19,7 +19,7 @@ export class GameListPersonalComponent implements OnInit{
       private route: ActivatedRoute,
       private location: Location) { }
 
-  juegos: Result[] = []
+  juegos: Valoracion[] = []
   currentUrl: string ="";
   userID ?: string ="";
   valoraciones : Valoracion[] = [];
@@ -74,8 +74,8 @@ export class GameListPersonalComponent implements OnInit{
     
     test.then((objeto) => {
       console.log(objeto)
-      this.valoraciones = objeto;
-      console.log(this.valoraciones)
+      this.juegos = objeto;
+      console.log(this.juegos)
     }).catch((error) => {
       console.log(error); // Manejo de errores
     });

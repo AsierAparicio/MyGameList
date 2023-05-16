@@ -1,0 +1,27 @@
+
+<mat-card class="shadow rounded image-container card-container" [routerLink]="['/detail/',juego.gameID]" [state]=juego >
+  
+
+    <img class="img-fluid" mat-card-image src={{juego.background_image}}>
+    <div class="card-content">
+      <h2>{{juego.name}}</h2>
+      <ul style="list-style-type: none; display: flex; justify-content: center;">
+        <li *ngFor="let lista of listas" style="display:flex; justify-content: center;">
+          <mat-card>
+            <button mat-button >
+              <mat-icon matListItemIcon style="margin-right: 0px;">{{lista.icon}}</mat-icon>
+            </button>
+          </mat-card>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="d-flex justify-content-between">
+      <mat-card-title class="mat-card-title p-2">{{juego.released}}</mat-card-title>
+      <mat-card-title class="mat-card-title ml p-2" [style.color]="getColor().color">{{juego.metacritic}}</mat-card-title>
+    </div>
+    <div class="d-flex align-self-center">
+      <mat-card-title class="mat-card-title pr p-2">{{juego.name}}</mat-card-title>
+    </div>
+  </mat-card>
+  

@@ -5,6 +5,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { GameCardValoracionComponent } from './components/game-card-valoracion/game-card-valoracion.component';
 StarRatingComponent
 @NgModule({
 
@@ -13,7 +14,7 @@ StarRatingComponent
     MaterialModule,
     RouterModule
   ],
-  declarations: [GameCardComponent, MenuComponent,StarRatingComponent],
-  exports: [GameCardComponent, MenuComponent,StarRatingComponent]
+  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent],
+  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent]
 })
 export class SharedModule { }
