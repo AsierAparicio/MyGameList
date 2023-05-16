@@ -38,6 +38,10 @@ const routes: Routes = [
     component: GameListPersonalComponent,
   },
   {
+    path: 'directorio',
+    component: GameListComponent,
+  },
+  {
     path: '**',
     redirectTo: ''
   }
