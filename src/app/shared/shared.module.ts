@@ -6,7 +6,8 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { GameCardValoracionComponent } from './components/game-card-valoracion/game-card-valoracion.component';
-StarRatingComponent
+
+
 @NgModule({
 
   imports: [
