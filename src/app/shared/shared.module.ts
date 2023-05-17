@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { GameCardValoracionComponent } from './components/game-card-valoracion/game-card-valoracion.component';
+import { QrComponent } from './components/qr/qr.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { GameCardValoracionComponent } from './components/game-card-valoracion/g
     MaterialModule,
     RouterModule
   ],
-  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent],
-  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent]
+  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, QrComponent],
+  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, QrComponent]
 })
 export class SharedModule { }
