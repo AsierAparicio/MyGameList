@@ -6,9 +6,6 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from
 })
 export class LoginService {
 
-  log: boolean = false;
-  user: string = '';
-  userId: string = '0';
   constructor(private auth: Auth) { }
 
   register({email, password}: any){
@@ -20,22 +17,22 @@ export class LoginService {
   }
 
   setUser(name: string, id: string){
-    this.user = name;
-    this.log = true;
-    this.userId = id;
+    localStorage.setItem('name', JSON.stringify(name));
+    localStorage.setItem('id', JSON.stringify(id));
+    localStorage.setItem('sesion', JSON.stringify(true));
   }
 
   getUser(){
-    return this.user 
+    return JSON.parse(localStorage.getItem('name') || '');
   }
 
   getId(){
-    return this.userId
+    return JSON.parse(localStorage.getItem('id') || '0');
   }
 
   logOut(){
-    this.user = '';
-    this.log = false;
-    this.userId = '0';
+    localStorage.setItem('name', JSON.stringify(''));
+    localStorage.setItem('id', JSON.stringify('0'));
+    localStorage.setItem('sesion', JSON.stringify(false));
   }
 }
