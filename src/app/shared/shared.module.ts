@@ -8,6 +8,8 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { GameCardValoracionComponent } from './components/game-card-valoracion/game-card-valoracion.component';
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { NgChartsModule } from 'ng2-charts';
+import { QrComponent } from './components/qr/qr.component';
+
 
 @NgModule({
 
@@ -17,7 +19,8 @@ import { NgChartsModule } from 'ng2-charts';
     RouterModule,
     NgChartsModule
   ],
-  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, GraficasComponent],
-  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, GraficasComponent]
+  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, QrComponent, GraficasComponent],
+  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, QrComponent, GraficasComponent]
+
 })
 export class SharedModule { }

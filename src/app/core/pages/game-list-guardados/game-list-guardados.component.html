@@ -1,6 +1,12 @@
 <app-menu></app-menu>
 
-<h1 class="titulo p-5">Lista de Guardados</h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="titulo p-5">Lista de Pendientes</h1>
+
+  <app-qr></app-qr>
+</div>
+
+
   <div class="align-items-center"
     fxLayout="row wrap"
     fxLayout.xs="column"
@@ -13,10 +19,4 @@
           *ngFor="let juego of juegos">
           <app-game-card-valoracion [juego]="juego"></app-game-card-valoracion>
       </div>
-  </div>
-
-  <div class="botonera">
-      <button *ngIf="num>1" (click)="anterior()" mat-mini-fab color="primary"><mat-icon>arrow_back</mat-icon></button>
-      <h1 class="num">{{num}}</h1>
-      <button (click)="siguiente()" mat-mini-fab color="primary"><mat-icon>arrow_forward</mat-icon></button>
   </div>
