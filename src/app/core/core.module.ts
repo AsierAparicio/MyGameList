@@ -14,6 +14,9 @@ import { BbddService } from './services/bbdd.service';
 import { GameListPersonalComponent } from './pages/game-list-personal/game-list-personal.component';
 import { GameListSeguidosComponent } from './pages/game-list-seguidos/game-list-seguidos.component';
 import { GameListGuardadosComponent } from './pages/game-list-guardados/game-list-guardados.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { NgChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -25,9 +28,10 @@ import { GameListGuardadosComponent } from './pages/game-list-guardados/game-lis
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NgChartsModule
   ],
-  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent, GameListSeguidosComponent, GameListGuardadosComponent],
-  exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent]
+  declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent, GameListSeguidosComponent, GameListGuardadosComponent, ProfileComponent],
+  exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, ProfileComponent]
 })
 export class CoreModule { }
