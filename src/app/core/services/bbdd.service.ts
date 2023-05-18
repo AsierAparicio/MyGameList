@@ -76,6 +76,42 @@ async selectInsertUpdate(val: valoracion){
   return valoraciones;
 }
 
+async selectInsertUpdateCambioLista(val: valoracion, listanum: number){
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', val.userID),
+    where('gameID', '==', val.gameID)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  var idAux:string = "test";
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    console.log("--------------------------------------");
+    console.log(valoracion.id);
+    console.log("--------------------------------------");
+    idAux = valoracion.id;
+    return valoracion;
+  });
+
+  if (valoraciones.length <= 0){
+    this.addValoracion(val);
+    console.log('insert');
+  }else{
+    console.log("--------------------------------------");
+    console.log(valoraciones[0].id);
+    console.log("--------------------------------------");
+    valoraciones[0].listaID = listanum
+    this.setValoracion(valoraciones[0], idAux);
+    console.log('update');
+  }
+
+  return valoraciones;
+}
+
 
 async selectGameAndUser(val: valoracion){
   const valRef = collection(this.firestore, 'Valoraciones');

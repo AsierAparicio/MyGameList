@@ -10,9 +10,11 @@ import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 export class GameCardValoracionComponent implements OnInit {
   @Input() juego!: Valoracion;
   listas: { icon: string, nombre: string }[] = [
-    { icon : "favorite", nombre : "Seguidos"},
-    { icon : "watch_later", nombre : "Más tarde"},
-    { icon : "clear", nombre : "Abandonados"},]
+    { icon: "favorite", nombre: "Seguidos" },
+    { icon: "watch_later", nombre: "Pendientes" },
+    { icon: "clear", nombre: "Abandonados" },
+
+  ]
   constructor() { }
 
   ngOnInit() {

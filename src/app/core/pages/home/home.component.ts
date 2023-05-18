@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
   juegos: Result[] = []
   noticias: Article[] = []
   listas: { icon: string, nombre: string }[] = [
-    { icon: "favorite", nombre: "seguidos" },
-    { icon: "watch_later", nombre: "guardados" },
-    { icon: "clear", nombre: "abandonados" },
+    { icon: "favorite", nombre: "Seguidos" },
+    { icon: "watch_later", nombre: "Pendientes" },
+    { icon: "clear", nombre: "Abandonados" },
 
   ]
   //update
