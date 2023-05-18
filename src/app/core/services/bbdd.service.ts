@@ -131,4 +131,20 @@ async selectGameAndUser(val: valoracion){
   return valoraciones;
 }
 
+async selectValoracionesFromGame (val: valoracion){
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef,
+    where('gameID', '==', val.gameID)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  return valoraciones;
+}
 }
