@@ -6,10 +6,20 @@
   <div class="card-content">
     <h2>{{juego.name}}</h2>
     <ul style="list-style-type: none; display: flex; justify-content: center;">
-      <li *ngFor="let lista of listas" style="display:flex; justify-content: center;">
+      <li style="display:flex; justify-content: center;">
         <mat-card>
-          <button mat-button >
-            <mat-icon matListItemIcon style="margin-right: 0px;">{{lista.icon}}</mat-icon>
+          <button mat-button (click) = cambiarDeLista(listas[0].value)>
+            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[0].icon}}</mat-icon>
+          </button>
+        </mat-card>
+        <mat-card>
+          <button mat-button (click) = cambiarDeLista(listas[1].value)>
+            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[1].icon}}</mat-icon>
+          </button>
+        </mat-card>
+        <mat-card>
+          <button mat-button (click) = cambiarDeLista(listas[2].value)>
+            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[2].icon}}</mat-icon>
           </button>
         </mat-card>
       </li>
