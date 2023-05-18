@@ -6,16 +6,18 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { GameCardValoracionComponent } from './components/game-card-valoracion/game-card-valoracion.component';
-
+import { GraficasComponent } from './components/graficas/graficas.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
 
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    NgChartsModule
   ],
-  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent],
-  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent]
+  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, GraficasComponent],
+  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, GraficasComponent]
 })
 export class SharedModule { }

@@ -13,8 +13,7 @@
     <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario">
        {{user}}
        <mat-menu #usuario="matMenu">
-        <button mat-menu-item>Mis Juegos</button>
-        <button mat-menu-item>Ajustes</button>
+        <button mat-menu-item routerLink="/perfil">Estadisticas</button>
         <button mat-menu-item (click)="logOut()">Cerrar Sesion</button>
       </mat-menu>
     </button>

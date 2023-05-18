@@ -8,6 +8,7 @@ import { RegistroComponent } from './core/pages/registro/registro.component';
 import { GameListPersonalComponent } from './core/pages/game-list-personal/game-list-personal.component';
 import { GameListGuardadosComponent } from './core/pages/game-list-guardados/game-list-guardados.component';
 import { GameListSeguidosComponent } from './core/pages/game-list-seguidos/game-list-seguidos.component';
+import { ProfileComponent } from './core/pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'guardados/:userId',
     component: GameListGuardadosComponent,
+  },
+  {
+    path: 'perfil',
+    component: ProfileComponent,
   },
   {
     path: '**',
