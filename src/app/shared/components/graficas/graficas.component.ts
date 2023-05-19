@@ -117,7 +117,7 @@ export class GraficasComponent implements OnInit {
           },
           {
             data: [this.num1_1, this.num2_1, this.num3_1],
-            label: 'Comapracion',
+            label: 'Comparacion',
             backgroundColor: ['#4aba5a', '#c4a562', '#a15555']
           }
         ]
