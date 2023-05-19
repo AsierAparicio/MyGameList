@@ -31,6 +31,8 @@ export class GameDetailComponent implements OnInit {
   auxGameId ?: string = "";
   ngLista: string = "0";
 
+  valoracionesExter: Valoracion[] = [];
+
   game!: VideojuegoIndividual;
   constructor(
     private gameService:GameService,
@@ -88,6 +90,16 @@ export class GameDetailComponent implements OnInit {
         }).catch((error) => {
           console.log(error); // Manejo de errores
         });
+
+    const valoraciones= this.BbddService.selectValoracionesFromGame(this.Valoracion);
+    valoraciones.then((obj) =>{
+      obj.forEach(element => {
+        this.valoracionesExter.push(element)
+        
+      });
+    }
+    )
+    console.log(this.valoracionesExter)
   }
 
   getColor(): { color: string } {
