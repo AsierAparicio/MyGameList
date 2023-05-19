@@ -1,4 +1,12 @@
-<div style="display: block" class="chart-container">
-    <canvas baseChart class="chart" [data]="doughnutChartData" [type]="doughnutChartType">
-    </canvas>
+<div class="chart-container-barra" *ngIf="linea===true">
+    <canvas baseChart class="chart" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
+    <div class="col-md-5 margen textarea-container">
+        <textarea class="form-control" #myTextarea></textarea>
+        <br>
+        <button class="btn btn-primary" type="button" (click)="logTextAreaValue(myTextarea.value)">Comparar</button>
+    </div>
+</div>
+
+<div class="chart-container" *ngIf="linea===false">
+    <canvas baseChart class="chart" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
 </div>

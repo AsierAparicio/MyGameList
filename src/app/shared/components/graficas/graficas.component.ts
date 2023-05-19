@@ -11,6 +11,7 @@ import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 })
 export class GraficasComponent implements OnInit {
   constructor(private bbddService: BbddService, private loginService: LoginService) { }
+  contenidoTextarea!: string;
   public doughnutChartLabels: string[] = [];
   public doughnutChartData!: ChartData<'doughnut'>;
   public doughnutChartType: ChartType = 'doughnut';
@@ -50,7 +51,11 @@ export class GraficasComponent implements OnInit {
   }
 
   }
-
+  
+  logTextAreaValue(value: string) {
+    this.usucompa = value
+    this.comparar()
+  }
   cargarBarras(){
     var test1 = this.bbddService.select( this.usuario, 1);
     var test2 = this.bbddService.select( this.usuario, 3);
@@ -73,7 +78,7 @@ export class GraficasComponent implements OnInit {
     test3.then((objeto) => {
       this.juegos1 = objeto;
       this.num3 = this.juegos1.length
-      if(this.usucompa!=''){
+      if(this.usucompa!='' && this.num1_1+this.num2_1+this.num3_1!=0){
         this.montarBarrasComparacion()
       }else{
         this.montarBarras()
