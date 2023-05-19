@@ -3,6 +3,7 @@ import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 import { LoginService } from '../../../core/services/login.service';
 import { BbddService } from '../../../core/services/bbdd.service';
+import { Timestamp } from 'firebase/firestore';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { BbddService } from '../../../core/services/bbdd.service';
 export class GameCardComponent implements OnInit {
   @Input() juego!: Result;
   userID=this.LoginService.getId();
+  usuario=this.LoginService.getUser();
+  fecha: Timestamp = Timestamp.now();
   listas: { icon: string, nombre: string, value: number}[] = [
     { icon: "favorite", nombre: "Seguidos", value: 1 },
     { icon: "watch_later", nombre: "Pendientes", value: 3 },
@@ -32,9 +35,11 @@ export class GameCardComponent implements OnInit {
     metacritic: 0,
     userID: this.userID,
     gameID: 1,
+    usuario: this.usuario,
     valoracion: 0,
     critica: '',
     listaID: 0,
+    fechaValoracion: this.fecha,
   };
 
   async cambiarDeLista(lista: number){

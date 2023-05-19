@@ -11,6 +11,7 @@ import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 import valoracion from '../../../interfaces/Valoracion.interfaces';
 import { LoginService } from '../../services/login.service';
 import { Location } from '@angular/common';
+import { Timestamp } from 'firebase/firestore';
 
 
 @Component({
@@ -24,12 +25,14 @@ export class GameDetailComponent implements OnInit {
   listaSeleccionada!: string;
   contenidoTextarea!: string;
   userID=this.LoginService.getId();
+  usuario=this.LoginService.getUser();
   rating:number=0;
   currentRating: number = 0;
   nota:number=0;
   currentUrl: string ="";
   auxGameId ?: string = "";
   ngLista: string = "0";
+  fecha: Timestamp = Timestamp.now();
 
   valoracionesExter: Valoracion[] = [];
 
@@ -49,10 +52,12 @@ export class GameDetailComponent implements OnInit {
     released: '2022-01-01',
     metacritic: 90,
     userID: this.userID,
+    usuario: this.usuario,
     gameID: 1,
     valoracion: 5,
     critica: '¡Me encantó este juego! Tiene una historia increíble y una jugabilidad muy fluida.',
     listaID: 1,
+    fechaValoracion: this.fecha,
   };
 
   ngOnInit(): void {
