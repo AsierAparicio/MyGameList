@@ -1,14 +1,19 @@
 <body>
   <app-menu></app-menu>
-  <div class="container my-5 color2 rounded">
+  <div class="container-detail">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <h1 class="pt-3 fuente">{{ game.name }}</h1>
+
         <div class="d-flex justify-content-between">
-          <p>{{ game.released }}</p>
-          <p class="p-2" [style.color]="getColor().color">
+          <div>
+            <h1 class="pt-3 fuente">{{ game.name }}</h1>
+            <p>{{ game.released }}</p>
+          </div>
+
+          <div class="metacritic" [style.background-color]="getColor().color"><p>
             {{ game.metacritic }}
-          </p>
+          </p></div>
+
         </div>
         <img
           src="{{ game.background_image }}"
@@ -20,11 +25,14 @@
         <h2>Descripción</h2>
         <p>{{ game.description_raw }}</p>
         <h2>Generos</h2>
-        <ul>
-          <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
-        </ul>
+        <div  class="chips">
+          <mat-chip-listbox *ngFor="let genre of game.genres" aria-label="Géneros">
+            <mat-chip-option>{{ genre.name }}</mat-chip-option>
+          </mat-chip-listbox>
+        </div>
+
       </div>
-      
+
       <div class="col-md-5 margen">
         <h2>Critica</h2>
         <div class="input-group">
@@ -48,13 +56,15 @@
             <input [(ngModel)]="ngLista" type="radio" name="lista" value="2" (change)="onChange($event)"> Abandonados
           </label>
         </div>
-        
+
 
         <div class="d-flex justify-content-center pt-5">
           <button class="btn btn-primary" type="button"(click)="onSubmit()">Guardar</button>
           <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>
         <br>
+
+
         <div class="card-columns">
           <div class="card" *ngFor="let genre of valoracionesExter">
             <div class="card-body">
@@ -65,7 +75,7 @@
         </div>
         <!--<app-graficas [game]="this.game.id"></app-graficas>-->
       </div>
-      
+
     </div>
   </div>
 </body>

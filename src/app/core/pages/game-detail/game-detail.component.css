@@ -1,15 +1,48 @@
 .espacioIZQ{
   margin-left: 60%;
 }
+
+.container-detail{
+  margin: 3em 7em;
+}
+
+.col-md-10{
+  width: 100%;
+}
+
+.img-fluid{
+  object-fit: cover;
+  height: 450px;
+  width: 100%;
+}
 .margen{
   margin-left:7%;
 }
-body{
-  background-color: #546794;
+
+.metacritic{
+color: white;
+    border-radius: 5px;
+    padding: 0.5em;
+    font-size: 20px;
+    height: 50px;
+    margin-top: 15px;
+    vertical-align: middle;
 }
-.color2{
-  background-color: #8794c0;
+
+.chips{
+  display: flex;
+  gap: 10px;
 }
+
+.col-md-6, .col-md-5{
+margin-top: 2em ;
+}
+
+p{
+  padding: 0;
+  margin: 0;
+}
+
 .fuente{
   font-size: 2.7rem;
 }
@@ -22,3 +55,4 @@ body{
   background-size: contain;
   cursor: pointer;
 }
+

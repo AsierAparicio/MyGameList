@@ -74,15 +74,15 @@ export class GameDetailComponent implements OnInit {
     if(this.auxGameId !== undefined){
       this.Valoracion.gameID = parseInt(this.auxGameId);
     }
-    
+
 
     const respose= this.BbddService.selectGameAndUser(this.Valoracion);
         respose.then((objeto) => {
           if(objeto.length>=1){
             this.Valoracion = objeto[0];
             this.contenidoTextarea = this.Valoracion.critica;
-            
-            this.nota = this.Valoracion.valoracion; 
+
+            this.nota = this.Valoracion.valoracion;
 
             this.rating = this.nota;
 
@@ -91,7 +91,7 @@ export class GameDetailComponent implements OnInit {
           }else{
             console.log("nada");
           }
-          
+
         }).catch((error) => {
           console.log(error); // Manejo de errores
         });
@@ -100,7 +100,7 @@ export class GameDetailComponent implements OnInit {
     valoraciones.then((obj) =>{
       obj.forEach(element => {
         this.valoracionesExter.push(element)
-        
+
       });
     }
     )
@@ -128,7 +128,7 @@ export class GameDetailComponent implements OnInit {
     this.rating=rating;
   }
 
-  
+
 
   async onSubmit(){
     console.log(this.game);
@@ -146,7 +146,8 @@ export class GameDetailComponent implements OnInit {
       this.Valoracion.valoracion=this.rating;
       this.Valoracion.name=this.game.name;
       this.Valoracion.critica=this.contenidoTextarea;
-
+      this.Valoracion.fechaValoracion=this.fecha;
+      this.Valoracion.usuario=this.usuario;
 
       const respose=await this.BbddService.selectInsertUpdate(this.Valoracion);
       console.log(respose);
