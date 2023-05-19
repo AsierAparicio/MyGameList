@@ -41,6 +41,25 @@ async select(user: string, lista: number): Promise<Valoracion[]> {
   return valoraciones;
 }
 
+async selectGame(game: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('gameID', '==', game)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
+
+  return valoraciones;
+}
+
 async selectInsertUpdate(val: valoracion){
   const valRef = collection(this.firestore, 'Valoraciones');
   const q = query(valRef, 
