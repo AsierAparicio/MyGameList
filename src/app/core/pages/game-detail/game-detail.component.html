@@ -24,6 +24,7 @@
           <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
         </ul>
       </div>
+      
       <div class="col-md-5 margen">
         <h2>Critica</h2>
         <div class="input-group">
@@ -53,7 +54,9 @@
           <button class="btn btn-primary" type="button"(click)="onSubmit()">Guardar</button>
           <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>
+        <!--<app-graficas [game]="this.game.id"></app-graficas>-->
       </div>
+      
     </div>
   </div>
 </body>

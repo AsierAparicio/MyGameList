@@ -30,6 +30,7 @@ export class GraficasComponent implements OnInit {
   num3_1!: number;
   @Input() linea: boolean = false;
   @Input() lista: number = 0;
+  @Input() game: number = 0;
 
 //@Input() conparacion: string = '';
   ngOnInit(): void {
@@ -119,7 +120,11 @@ export class GraficasComponent implements OnInit {
   }
 
   cargarcirculo(){
-    var test1 = this.bbddService.select( this.usuario, this.lista);
+    if(this.game!=0){
+      var test1 = this.bbddService.selectGame( this.game);
+    }else{
+      var test1 = this.bbddService.select( this.usuario, this.lista);
+    }
 
     test1.then((objeto) => {
       this.juegos1 = objeto;
