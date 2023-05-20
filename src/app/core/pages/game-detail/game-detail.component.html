@@ -23,6 +23,7 @@
         <ul>
           <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
         </ul>
+        <app-graficas [game]="this.game.id"></app-graficas>
       </div>
       
       <div class="col-md-5 margen">
@@ -55,15 +56,14 @@
           <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>
         <br>
-        <div class="card-columns">
-          <div class="card" *ngFor="let genre of valoracionesExter">
-            <div class="card-body">
+        <div class="card-columns" *ngFor="let genre of valoracionesExter">
+          <div class="card mt-3"  *ngIf="genre.critica!='' && genre.userID!=this.userID">
+            <div class="card-body" >
               <h5 class="card-title">{{genre.usuario}}</h5>
               <p class="card-text">{{genre.critica}}</p>
             </div>
           </div>
         </div>
-        <!--<app-graficas [game]="this.game.id"></app-graficas>-->
       </div>
       
     </div>
