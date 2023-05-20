@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10">
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex title-content">
           <div>
             <h1 class="pt-3 fuente">{{ game.name }}</h1>
             <p>{{ game.released }}</p>
@@ -21,15 +21,16 @@
           class="img-fluid rounded my-3"
         />
       </div>
+      <div  class="chips">
+        <mat-chip-listbox *ngFor="let genre of game.genres" aria-label="Géneros">
+          <mat-chip-option>{{ genre.name }}</mat-chip-option>
+        </mat-chip-listbox>
+      </div>
+
       <div class="col-md-6 mr-5">
         <h2>Descripción</h2>
-        <p>{{ game.description_raw }}</p>
-        <h2>Generos</h2>
-        <div  class="chips">
-          <mat-chip-listbox *ngFor="let genre of game.genres" aria-label="Géneros">
-            <mat-chip-option>{{ genre.name }}</mat-chip-option>
-          </mat-chip-listbox>
-        </div>
+        <p class="description">{{ game.description_raw }}</p>
+
 
       </div>
 
@@ -38,9 +39,10 @@
         <div class="input-group">
           <textarea [(ngModel)]="contenidoTextarea"class="form-control"></textarea>
         </div>
-        <star-rating [rating]="nota" (ratingChange)="onRatingChange($event)"></star-rating>
+        <star-rating class="rate" [rating]="nota" (ratingChange)="onRatingChange($event)"></star-rating>
 
         <label>¿En qué lista lo quieres meter?</label>
+
         <div>
           <label>
             <input [(ngModel)]="ngLista" type="radio" name="lista" value="1" (change)="onChange($event)" > Seguidos
@@ -58,7 +60,7 @@
         </div>
 
 
-        <div class="d-flex justify-content-center pt-5">
+        <div class="btns-container d-flex  pt-5">
           <button class="btn btn-primary" type="button"(click)="onSubmit()">Guardar</button>
           <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>

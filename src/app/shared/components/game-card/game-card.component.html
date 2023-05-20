@@ -1,34 +1,28 @@
 
 <mat-card class="shadow rounded image-container card-container">
-  
+
 
   <img class="img-fluid" mat-card-image src={{juego.background_image}} [routerLink]="['/detail/',juego.id]" [state]=juego >
   <div class="card-content">
     <h2>{{juego.name}}</h2>
-    <ul style="list-style-type: none; display: flex; justify-content: center;">
-      <li style="display:flex; justify-content: center;">
-        <mat-card>
-          <button mat-button (click) = cambiarDeLista(listas[0].value)>
-            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[0].icon}}</mat-icon>
-          </button>
-        </mat-card>
-        <mat-card>
-          <button mat-button (click) = cambiarDeLista(listas[1].value)>
-            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[1].icon}}</mat-icon>
-          </button>
-        </mat-card>
-        <mat-card>
-          <button mat-button (click) = cambiarDeLista(listas[2].value)>
-            <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[2].icon}}</mat-icon>
-          </button>
-        </mat-card>
-      </li>
-    </ul>
+    <div class="btns">
+      <button mat-button (click) = cambiarDeLista(listas[0].value)>
+        <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[0].icon}}</mat-icon>
+      </button>
+      <button mat-button (click) = cambiarDeLista(listas[1].value)>
+        <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[1].icon}}</mat-icon>
+      </button>
+      <button mat-button (click) = cambiarDeLista(listas[2].value)>
+        <mat-icon matListItemIcon style="margin-right: 0px;">{{listas[2].icon}}</mat-icon>
+      </button>
+    </div>
   </div>
 
   <div class="d-flex justify-content-between">
-    <mat-card-title class="mat-card-title p-2">{{juego.released}}</mat-card-title>
-    <mat-card-title class="mat-card-title ml p-2" [style.color]="getColor().color">{{juego.metacritic}}</mat-card-title>
+    <mat-card-subtitle class="mat-card-subtitle p-2">{{juego.released}}</mat-card-subtitle>
+    <div class="metacritic" [style.background-color]="getColor().color"><p>
+      {{ juego.metacritic }}
+    </p></div>
   </div>
   <div class="d-flex align-self-center">
     <mat-card-title class="mat-card-title pr p-2">{{juego.name}}</mat-card-title>

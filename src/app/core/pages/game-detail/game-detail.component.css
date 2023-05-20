@@ -1,24 +1,39 @@
-.espacioIZQ{
-  margin-left: 60%;
-}
 
 .container-detail{
   margin: 3em 7em;
 }
 
+@media screen and (max-width: 500px) {
+  .container-detail{
+    margin: 3em 1em;
+  }
+
+
+}
+
+.title-content{
+  justify-content: space-between;
+}
+.justify-content-center{
+  justify-content: space-between;
+}
+
+.rate{
+  margin-top: 2em;
+}
+.description{
+  margin-bottom: 3em;
+}
 .col-md-10{
   width: 100%;
 }
+
 
 .img-fluid{
   object-fit: cover;
   height: 450px;
   width: 100%;
 }
-.margen{
-  margin-left:7%;
-}
-
 .metacritic{
 color: white;
     border-radius: 5px;
@@ -33,6 +48,18 @@ color: white;
   display: flex;
   gap: 10px;
 }
+.card{
+  border: none;
+  margin-bottom: 1em;
+  --bs-card-bg:  #424242;
+}
+
+.card-body{
+  background-color: #424242;
+  border-radius: 8px;
+  color: white;
+  border: none;
+}
 
 .col-md-6, .col-md-5{
 margin-top: 2em ;
@@ -41,6 +68,26 @@ margin-top: 2em ;
 p{
   padding: 0;
   margin: 0;
+}
+
+.form-control{
+  background-color: #424242;
+  border:none;
+  color: white;
+}
+.btn-primary{
+  background-color: #BB86FC;
+  color: white;
+  border: #BB86FC;
+  margin-right: 10px;
+}
+
+.btns-container{
+  text-align: left;
+}
+
+body{
+  background-color: #151515;
 }
 
 .fuente{

@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   listas: { icon: string, nombre: string }[] = [
     { icon: "favorite", nombre: "Seguidos" },
     { icon: "watch_later", nombre: "Pendientes" },
-    { icon: "clear", nombre: "Abandonados" },
+    { icon: "heart_broken", nombre: "Abandonados" },
 
   ]
   //update

@@ -11,8 +11,48 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 15px 0 0 0;
   }
+  .row{
+    margin-top: 2em;
+  }
   .home{
     display: flex;
     flex-direction: row;
     margin: 10px;
+    background-color: #151515;
   }
+.card-container{
+  display: flex; justify-content: center;
+  width: 100%;
+  background-color: #1f2123;
+  padding: 2em 2em 3em;
+}
+
+.grid-cards {
+  gap: 15px;
+  justify-content: center;
+}
+
+.container-fluid{
+  padding: auto ;
+}
+.content{
+  text-decoration: none; justify-content: center;
+  width: 100%;
+  padding: 0 !important;
+  aspect-ratio: 4/3;
+  height: 100%;
+}
+img{
+  width: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+.title{
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1em;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

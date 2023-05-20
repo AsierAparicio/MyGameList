@@ -14,6 +14,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -31,7 +32,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatMenuModule,
     TextFieldModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

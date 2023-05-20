@@ -7,7 +7,7 @@ import { LoginService } from 'src/app/core/services/login.service';
   styles: [`
     mat-toolbar{
       height: 10%;
-       background-color:#8794c0;
+       background-color:#4c22a7;
     }
     mat-form-field{
       margin-top: 1.5%;
@@ -39,5 +39,5 @@ export class MenuComponent implements OnInit{
       this.log = true;
     }
   }
-  
+
 }

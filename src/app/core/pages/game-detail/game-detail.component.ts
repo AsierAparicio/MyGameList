@@ -121,6 +121,7 @@ export class GameDetailComponent implements OnInit {
     }
   }
   onChange(event: any) {
+    console.log(event)
     this.listaSeleccionada = event.target.value;
   }
 
