@@ -27,6 +27,21 @@
   padding: 2em 2em 3em;
 }
 
+.btn-container{
+  text-align: center;
+  background-color: #424242;
+  text-align: center;
+}
+
+.icon-container{
+  width: 100px;
+  padding: 1em;
+}
+
+.listas{
+  background-color: #1F2123;
+}
+
 .grid-cards {
   gap: 15px;
   justify-content: center;

@@ -21,38 +21,40 @@
   <div class="row">
     <!-- Columna de la izquierda -->
     <div class="col-md-2 custom-mt-15">
-      <div class="card">
-        <div class="card-header">
+      <div class="card listas">
+        <div >
           Listas disponibles
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['seguidos/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[0].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[0].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['guardados/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[1].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[1].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[2].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[2].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-          </li>
-        </ul>
+        <div>
+          <div class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['seguidos/',this.userID]">
+              <div class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[0].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[0].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+          <div  class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['guardados/',this.userID]">
+              <div  class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[1].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[1].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+          <div class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
+              <div class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[2].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[2].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </div>
 
