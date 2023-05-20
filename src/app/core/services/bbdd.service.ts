@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore,collection,addDoc,collectionData, query, where, getDocs } from '@angular/fire/firestore';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, orderBy, setDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 
 import valoracion from 'src/app/interfaces/Valoracion.interfaces';
@@ -163,6 +163,113 @@ async selectValoracionesFromGame (val: valoracion){
     valoracion.id = doc.id;
     return valoracion;
   });
+
+  return valoraciones;
+}
+
+async selectFechaDesc(user: string, lista: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', user),
+    where('listaID', '==', lista),
+    orderBy('fechaValoracion', 'desc')
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
+
+  return valoraciones;
+}
+
+async selectFechaAsc(user: string, lista: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', user),
+    where('listaID', '==', lista),
+    orderBy('fechaValoracion', 'asc')
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
+
+  return valoraciones;
+}
+
+async selectValoracionFechaDesc(user: string, lista: number, val: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', user),
+    where('listaID', '==', lista),
+    where('valoracion', '==', val),
+    orderBy('fechaValoracion', 'desc')
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
+
+  return valoraciones;
+}
+
+async selectValoracionFechaAsc(user: string, lista: number, val: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', user),
+    where('listaID', '==', lista),
+    where('valoracion', '==', val),
+    orderBy('fechaValoracion', 'asc')
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
+
+  return valoraciones;
+}
+
+async selectValoracion(user: string, lista: number, val: number): Promise<Valoracion[]> {
+  const valRef = collection(this.firestore, 'Valoraciones');
+  const q = query(valRef, 
+    where('userID', '==', user),
+    where('listaID', '==', lista),
+    where('valoracion', '==', val)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const valoraciones = querySnapshot.docs.map((doc) => {
+    const valoracion = doc.data() as Valoracion;
+    valoracion.id = doc.id;
+    return valoracion;
+  });
+
+  console.log(valoraciones);
 
   return valoraciones;
 }

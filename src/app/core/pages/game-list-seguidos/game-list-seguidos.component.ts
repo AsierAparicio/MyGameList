@@ -23,6 +23,8 @@ export class GameListSeguidosComponent implements OnInit{
  currentUrl: string ="";
  userID ?: string ="";
  valoraciones : Valoracion[] = [];
+ fecha = '';
+  nota = '';
  /*
  
  
@@ -66,22 +68,87 @@ export class GameListSeguidosComponent implements OnInit{
    window.scrollTo({ top: 0, behavior: 'smooth' });
  }
 
- visualizar(){
-   const variable = (this.userID === undefined ? "0" : this.userID )
+ visualizar() {
+  if (this.fecha === '' && this.nota === '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
 
-   console.log(variable);
-   var test = this.bbddService.select( variable, 1);
-   
-   test.then((objeto) => {
-     console.log(objeto)
-     this.juegos = objeto;
-     console.log(this.juegos)
-   }).catch((error) => {
-     console.log(error); // Manejo de errores
-   });
- }
+    console.log(variable);
+    var test = this.bbddService.select(variable, 1);
 
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  } else if (this.fecha === '' && this.nota != '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
 
+    console.log(variable);
+    var test = this.bbddService.selectValoracion(variable, 1, parseInt(this.nota));
+
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  } else if (this.fecha === 'desc' && this.nota === '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
+
+    console.log(variable);
+    var test = this.bbddService.selectFechaDesc(variable, 1);
+
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  } else if (this.fecha === 'asc' && this.nota === '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
+
+    console.log(variable);
+    var test = this.bbddService.selectFechaAsc(variable, 1);
+
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  } else if (this.fecha === 'asc' && this.nota != '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
+
+    console.log(variable);
+    var test = this.bbddService.selectValoracionFechaAsc(variable, 1, parseInt(this.nota));
+
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  } else if (this.fecha === 'desc' && this.nota != '') {
+    const variable = (this.userID === undefined ? "0" : this.userID)
+
+    console.log(variable);
+    var test = this.bbddService.selectValoracionFechaDesc(variable, 1, parseInt(this.nota));
+
+    test.then((objeto) => {
+      console.log(objeto)
+      this.juegos = objeto;
+      console.log(this.juegos)
+    }).catch((error) => {
+      console.log(error); // Manejo de errores
+    });
+  }
+}
 
  test(){
    this.route.params.subscribe(params => {
@@ -89,5 +156,9 @@ export class GameListSeguidosComponent implements OnInit{
      console.log(this.userID); // muestra el valor de userID en la consola
    });
  }
+
+ filtrar(){
+  this.visualizar();
+  }
 
 }
