@@ -3,7 +3,7 @@
   margin: 3em 7em;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 920px) {
   .container-detail{
     margin: 3em 1em;
   }
@@ -18,9 +18,18 @@
   justify-content: space-between;
 }
 
-.rate{
-  margin-top: 2em;
+input[type='radio'] {
+  accent-color: #BB86FC;
 }
+
+.label-lists{
+  margin-top: 1.5em;
+}
+
+.input-group{
+  margin-bottom: 1em;
+}
+
 .description{
   margin-bottom: 3em;
 }
@@ -84,6 +93,7 @@ p{
 
 .btns-container{
   text-align: left;
+  padding-top: 1.5em;
 }
 
 body{

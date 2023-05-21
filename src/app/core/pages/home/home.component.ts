@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import { NewsService } from '../../services/news.service';
@@ -15,12 +15,22 @@ interface Option {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  providers: [
+    { provide: Window, useValue: window }
+  ]
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('listasMenu', {read:ElementRef})
+  private listasMenu!:ElementRef<HTMLDivElement>
+
+  private initialBreakpoint?:number;
+  listasMenuClass = ''
+  cardsClass = ''
+
   constructor(private newsService: NewsService,
     private gameService: GameService,
-    private loginService: LoginService) { }
+    private loginService: LoginService, @Inject(Window)private window:Window) { }
 
   userID = this.loginService.getId()
   juegos: Result[] = []
@@ -35,6 +45,8 @@ export class HomeComponent implements OnInit {
   num: number = 1
   ngOnInit(): void {
     this.cargar()
+
+    
   }
 
   cargar() {
@@ -110,5 +122,23 @@ export class HomeComponent implements OnInit {
 
   handleOption3() {
     this.cargarUltimos();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  protected onScroll(){
+    const {offsetTop} = this.listasMenu.nativeElement;
+
+
+    if(!this.initialBreakpoint && offsetTop < this.window.scrollY){
+      this.listasMenuClass = 'fixed';
+      this.cardsClass = 'listasFixed';
+      this.initialBreakpoint = offsetTop;
+    }
+
+    if(this.initialBreakpoint && this.window.scrollY < this.initialBreakpoint){
+      this.listasMenuClass = 'noFixed';
+      this.cardsClass = 'listasNoFixed';
+      this.initialBreakpoint = undefined
+    }
   }
 }

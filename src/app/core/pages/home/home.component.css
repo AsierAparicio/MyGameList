@@ -13,6 +13,7 @@
   }
   .row{
     margin-top: 2em;
+    display: flex;
   }
   .home{
     display: flex;
@@ -27,16 +28,83 @@
   padding: 2em 2em 3em;
 }
 
+.card listas{
+  display: inline-flex;
+}
+
 .btn-container{
   text-align: center;
   background-color: #424242;
   text-align: center;
+  width: 90%;
+  margin: auto auto 0.5em;
+    border-radius: 7px;
 }
 
-.icon-container{
-  width: 100px;
-  padding: 1em;
+.mat-icon{
+  font-size: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
+    color: #666666;
 }
+
+
+.list-title{
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+
+}
+
+
+.col-md-2{
+  width: 10%;
+}
+
+@media screen and (max-width: 920px) {
+  .col-md-2{
+    width: 15%;
+  }
+
+  .col-md-10{
+    width: 75% ;
+  }
+  .listasFixed{
+    margin-left: 15%;
+  }
+  
+
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+}
+.noFixed{
+ position: inherit;
+}
+
+.listasFixed{
+  margin-left: 10%;
+}
+
+.listasNoFixed{
+  margin: 0;
+}
+
+.col-md-10{
+  width: 90%;
+}
+
+.icon-container h2{
+  font-size: 14px;
+}
+
+.mdc-button, .mat-mdc-button{
+  padding: 1em;
+  width: 100%;
+}
+
 
 .listas{
   background-color: #1F2123;

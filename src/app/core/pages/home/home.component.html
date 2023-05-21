@@ -20,9 +20,9 @@
   </div>
   <div class="row">
     <!-- Columna de la izquierda -->
-    <div class="col-md-2 custom-mt-15">
+    <div #listasMenu (scroll)="onScroll()" [class]="listasMenuClass" class="col-md-2 custom-mt-15">
       <div class="card listas">
-        <div >
+        <div class="list-title" >
           Listas disponibles
         </div>
         <div>
@@ -59,10 +59,10 @@
     </div>
 
     <!-- Grid de cards en el lado derecho -->
-    <div class="col-md-10">
+    <div (scroll)="onScroll()" [class]="cardsClass" class="col-md-10">
       <h2 style="margin-top: 15px;">Recomendados</h2>
 
-      <div class="align-items-center grid-cards" fxLayout="row wrap" fxLayout.xs="column">
+      <div  class="align-items-center grid-cards" fxLayout="row wrap" fxLayout.xs="column">
           <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="35" *ngFor="let juego of juegos">
               <app-game-card [juego]="juego"></app-game-card>
           </div>
