@@ -156,6 +156,7 @@ export class GameDetailComponent implements OnInit {
 
         let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
           width: '250px',
+          data: { juego : this.Valoracion.name, user : this.Valoracion.usuario}
         });
       //redireccionar fuera con un mensaje de se a guardado correctamente
     }else{
@@ -179,7 +180,7 @@ export class DialogOverviewExampleDialog {
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void {
+  onOkClick(): void {
     this.dialogRef.close();
   }
 
