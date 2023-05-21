@@ -64,7 +64,7 @@
         </div>
         <br>
         <div class="card-columns"  *ngFor="let genre of valoracionesExter">
-          <div class="card" *ngIf="genre.critica!='' && genre.userID!=this.userID" *ngFor="let genre of valoracionesExter">
+          <div class="card" *ngIf="genre.critica!='' && genre.userID!=this.userID" >
             <div class="card-body">
               <h5 class="card-title">{{genre.usuario}}</h5>
               <p class="card-text">{{genre.critica}}</p>
