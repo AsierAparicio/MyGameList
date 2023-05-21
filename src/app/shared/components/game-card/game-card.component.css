@@ -6,10 +6,19 @@ mat-card {
 
 .mat-card-title {
   color: white;
+  font-size: 16px;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .image-container {
   overflow: hidden;
+}
+
+.mat-card-subtitle{
+  font-size: 13px;
 }
 
 .image-container img {
@@ -29,8 +38,10 @@ mat-card {
 }
 
 .card-container:hover {
+  background-color: #424242;
   transform: translateY(-0.8vw);
   box-shadow: 0 0 1.3vw rgba(0, 0, 0, 0.2);
+
 }
 
 .card-content {
@@ -38,16 +49,43 @@ mat-card {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
   padding: 0.8vw;
   text-align: center;
   opacity: 0;
   transition: opacity 0.5s;
+  padding: 1em;
+}
+
+.d-flex{
+  padding: 0.5em;
+  display: flex;
+}
+
+button{
+  background-color: #BB86FC;
+  margin-left: 0.7em;
+  width: 30px;
+  height: 30px;
+}
+
+.btns:first-child{
+margin-left: 0;
 }
 
 .card-container:hover .card-content {
   opacity: 1;
+  background-color: #424242;
 }
+
+.metacritic{
+  color: white;
+      border-radius: 5px;
+      padding: 0.5em;
+      font-size: 16px;
+      height: 40px;
+      width: 40px;
+      vertical-align: middle;
+  }
 
 .img-fluid{
   object-fit: cover;

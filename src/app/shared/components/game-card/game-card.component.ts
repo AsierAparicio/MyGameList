@@ -10,7 +10,7 @@ import { Timestamp } from 'firebase/firestore';
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',
   styleUrls: [`./game-card.component.css`]
-  
+
 })
 export class GameCardComponent implements OnInit {
   @Input() juego!: Result;
@@ -20,7 +20,7 @@ export class GameCardComponent implements OnInit {
   listas: { icon: string, nombre: string, value: number}[] = [
     { icon: "favorite", nombre: "Seguidos", value: 1 },
     { icon: "watch_later", nombre: "Pendientes", value: 3 },
-    { icon: "clear", nombre: "Abandonados", value: 2 },
+    { icon: "heart_broken", nombre: "Abandonados", value: 2 },
 
   ]
   constructor(private LoginService:LoginService, private BbddService:BbddService) { }

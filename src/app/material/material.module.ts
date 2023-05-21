@@ -12,9 +12,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {TextFieldModule} from '@angular/cdk/text-field';
-
+import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -31,12 +31,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-
     TextFieldModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatRadioModule,
     MatDialogModule,
     MatSelectModule
-
-    
   ]
 })
 export class MaterialModule { }

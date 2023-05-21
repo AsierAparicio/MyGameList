@@ -1,17 +1,18 @@
 
 <app-menu></app-menu>
 <div class="container-fluid">
-  <div style="display: flex; justify-content: center;">
+  <div class="card-container" >
     <div *ngFor="let noticia of noticias">
       <a href="{{noticia.url}}" style="text-decoration: none;display:flex; width: 90%; justify-content: center; margin : auto; max-width: 300px;">
-        <mat-card style="margin-top: 20px; background-color:dimgray; width: auto">
+        <mat-card style="margin-top: 20px; width: auto">
           <mat-card-header>
-            <mat-card-title>{{noticia.title}}</mat-card-title>
+            <mat-card-title class="title">{{noticia.title}}</mat-card-title>
+
           </mat-card-header>
-          <mat-card-content style="text-decoration: none; justify-content: center;">
-            <img src="{{noticia.urlToImage}}" alt="{{noticia.author}}"
+          <mat-card-content class="content">
+            <img mat-card-image src="{{noticia.urlToImage}}" alt="{{noticia.author}}"
               style="height: auto; width: 100% ">
-            
+
           </mat-card-content>
         </mat-card>
       </a>
@@ -19,55 +20,50 @@
   </div>
   <div class="row">
     <!-- Columna de la izquierda -->
-    <div class="col-md-2 custom-mt-15">
-      <div class="card">
-        <div class="card-header">
+    <div #listasMenu (scroll)="onScroll()" [class]="listasMenuClass" class="col-md-2 custom-mt-15">
+      <div class="card listas">
+        <div class="list-title" >
           Listas disponibles
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['seguidos/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[0].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[0].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['guardados/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[1].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[1].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-            <mat-card>
-              <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
-                <div>
-                  <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[2].icon}}</mat-icon>
-                  <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[2].nombre}}</h2>
-                </div>
-              </button>
-            </mat-card>
-          </li>
-        </ul>
+        <div>
+          <div class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['seguidos/',this.userID]">
+              <div class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[0].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[0].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+          <div  class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['guardados/',this.userID]">
+              <div  class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[1].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[1].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+          <div class="btn-container">
+            <button mat-button style="height: auto;" [routerLink]="['abandonados/',this.userID]">
+              <div class="icon-container">
+                <mat-icon matListItemIcon style="font-size: 48px; height: 48px; width: 48px">{{listas[2].icon}}</mat-icon>
+                <h2 style="margin-left: 0px; margin-bottom: 0px;">{{listas[2].nombre}}</h2>
+              </div>
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </div>
 
     <!-- Grid de cards en el lado derecho -->
-    <div class="col-md-10">
-      <h2 style="margin-top: 15px;">Novedades...</h2>
-      <nav class="navbar navbar-light bg-light col-md-10">
-        <select class="form-select" [(ngModel)]="selectedOption" (change)="onOptionSelected()">
-          <option>Ordenar por...</option>
-          <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
-        </select>
-      </nav>
+    <div (scroll)="onScroll()" [class]="cardsClass" class="col-md-10">
+      <h2 style="margin-top: 15px;">Recomendados</h2>
 
-
-      <div class="align-items-center" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="1.3vw">
-          <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="40" *ngFor="let juego of juegos">
+      <div  class="align-items-center grid-cards" fxLayout="row wrap" fxLayout.xs="column">
+          <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="35" *ngFor="let juego of juegos">
               <app-game-card [juego]="juego"></app-game-card>
           </div>
       </div>

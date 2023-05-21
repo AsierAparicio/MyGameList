@@ -11,8 +11,146 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 15px 0 0 0;
   }
+  .row{
+    margin-top: 2em;
+    display: flex;
+  }
   .home{
     display: flex;
     flex-direction: row;
     margin: 10px;
+    background-color: #151515;
   }
+.card-container{
+  display: flex; justify-content: center;
+  width: 100%;
+  background-color: #1f2123;
+  padding: 2em 2em 3em;
+}
+
+.card listas{
+  display: inline-flex;
+}
+
+.btn-container{
+  text-align: center;
+  background-color: #424242;
+  text-align: center;
+  width: 90%;
+  margin: auto auto 0.5em;
+    border-radius: 7px;
+}
+
+.mat-icon{
+  font-size: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
+    color: #666666;
+}
+
+
+.list-title{
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+
+}
+
+
+.col-md-2{
+  width: 10%;
+}
+
+@media screen and (max-width: 920px) {
+  .col-md-2{
+
+    display:none;
+  }
+
+  .col-md-10{
+    width: 90% ;
+    margin-left:0 !important;
+  }
+  .listasNoFixed{
+    margin-left:0 !important;
+  }
+}
+@media screen and (min-width:920px) {
+  .col-md-2{
+    width: 10%;
+
+  }
+  .col-md-10{
+    width:90% ;
+  }
+  .listasFixed{
+    margin-left: 10% !important;
+  }
+  .listasNoFixed{
+    margin-left:0 !important;
+  }
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+}
+.noFixed{
+ position: inherit;
+}
+
+.listasFixed{
+  margin-left: 10%;
+}
+
+.listasNoFixed{
+  margin: 0;
+}
+
+.col-md-10{
+  width: 90%;
+}
+
+.icon-container h2{
+  font-size: 14px;
+}
+
+.mdc-button, .mat-mdc-button{
+  padding: 1em;
+  width: 100%;
+}
+
+
+.listas{
+  background-color: #1F2123;
+}
+
+.grid-cards {
+  gap: 15px;
+  justify-content: center;
+}
+
+.container-fluid{
+  padding: auto ;
+}
+.content{
+  text-decoration: none; justify-content: center;
+  width: 100%;
+  padding: 0 !important;
+  aspect-ratio: 4/3;
+  height: 100%;
+}
+img{
+  width: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+.title{
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1em;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
