@@ -13,6 +13,7 @@
   <mat-form-field  class="p-2">
     <mat-label>Filtrar por Nota</mat-label>
     <mat-select [(value)]="nota">
+        <mat-option value="">Sin Nota</mat-option>
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -24,6 +25,7 @@
   <mat-form-field  class="p-2">
       <mat-label>Ordenar por Fecha</mat-label>
       <mat-select [(value)]="fecha">
+          <mat-option value="">Sin Orden</mat-option>
           <mat-option value="desc">Nuevo</mat-option>
           <mat-option value="asc">Antiguo</mat-option>
       </mat-select>
