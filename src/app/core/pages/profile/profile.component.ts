@@ -9,7 +9,9 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent{
+  constructor(private LoginService:LoginService) {}
 
-
+  userID=this.LoginService.getId();
+  usuario=this.LoginService.getUser();
  
   }

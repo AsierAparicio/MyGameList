@@ -30,8 +30,6 @@
       <div class="col-md-6 mr-5">
         <h2>Descripción</h2>
         <p class="description">{{ game.description_raw }}</p>
-
-
       </div>
 
       <div class="col-md-5 margen">
@@ -65,17 +63,14 @@
           <button class="btn btn-secondary text-center" type="button">Cancelar</button>
         </div>
         <br>
-
-
-        <div class="card-columns">
-          <div class="card" *ngFor="let genre of valoracionesExter">
+        <div class="card-columns"  *ngFor="let genre of valoracionesExter">
+          <div class="card" *ngIf="genre.critica!='' && genre.userID!=this.userID" *ngFor="let genre of valoracionesExter">
             <div class="card-body">
               <h5 class="card-title">{{genre.usuario}}</h5>
               <p class="card-text">{{genre.critica}}</p>
             </div>
           </div>
         </div>
-        <!--<app-graficas [game]="this.game.id"></app-graficas>-->
       </div>
 
     </div>
