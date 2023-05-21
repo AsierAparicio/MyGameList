@@ -12,7 +12,9 @@ import valoracion from '../../../interfaces/Valoracion.interfaces';
 import { LoginService } from '../../services/login.service';
 import { Location } from '@angular/common';
 import { Timestamp } from 'firebase/firestore';
+import {Inject} from '@angular/core';
 
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-detail',
@@ -42,7 +44,8 @@ export class GameDetailComponent implements OnInit {
     private LoginService:LoginService,
     private BbddService:BbddService,
     private activateRoute: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public dialog: MatDialog
   ) {
   }
 
@@ -150,6 +153,11 @@ export class GameDetailComponent implements OnInit {
 
       const respose=await this.BbddService.selectInsertUpdate(this.Valoracion);
       console.log(respose);
+
+        let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+          width: '250px',
+          data: { juego : this.Valoracion.name, user : this.Valoracion.usuario}
+        });
       //redireccionar fuera con un mensaje de se a guardado correctamente
     }else{
       //añadir mensaje de que tienes que iniciar sesion
@@ -160,4 +168,20 @@ export class GameDetailComponent implements OnInit {
 
 
   }
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: './dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onOkClick(): void {
+    this.dialogRef.close();
+  }
+
 }
