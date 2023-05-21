@@ -15,6 +15,8 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 
 import {MatSelectModule} from '@angular/material/select';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [],
   exports: [
@@ -31,9 +33,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatMenuModule,
 
     TextFieldModule,
-
+    MatDialogModule,
     MatSelectModule
 
+    
   ]
 })
 export class MaterialModule { }
