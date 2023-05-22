@@ -4,7 +4,7 @@ import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import { NewsService } from '../../services/news.service';
 import { Article } from '../../../interfaces/Noticias.interfaces';
 import { LoginService } from '../../services/login.service';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 interface Option {
   value: string;
@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private newsService: NewsService,
     private gameService: GameService,
-    private loginService: LoginService, @Inject(Window)private window:Window) { }
+    private loginService: LoginService, @Inject(Window)private window:Window,
+    public dialog: MatDialog) { }
 
   userID = this.loginService.getId()
   juegos: Result[] = []
@@ -142,3 +143,4 @@ export class HomeComponent implements OnInit {
     }
   }
 }
+

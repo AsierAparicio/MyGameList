@@ -4,13 +4,13 @@ import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 import { LoginService } from '../../../core/services/login.service';
 import { BbddService } from '../../../core/services/bbdd.service';
 import { Timestamp } from 'firebase/firestore';
-
+import { ElementRef, HostListener, Inject, ViewChild } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',
   styleUrls: [`./game-card.component.css`]
-
 })
 export class GameCardComponent implements OnInit {
   @Input() juego!: Result;
@@ -23,7 +23,8 @@ export class GameCardComponent implements OnInit {
     { icon: "heart_broken", nombre: "Abandonados", value: 2 },
 
   ]
-  constructor(private LoginService:LoginService, private BbddService:BbddService) { }
+  constructor(private LoginService:LoginService, private BbddService:BbddService, @Inject(Window)private window:Window,
+  public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -50,6 +51,10 @@ export class GameCardComponent implements OnInit {
     this.Valoracion.gameID = this.juego.id
     this.Valoracion.listaID = lista
     await this.BbddService.selectInsertUpdateCambioLista(this.Valoracion, lista);
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: { juego : this.Valoracion.name, user : this.Valoracion.usuario}
+    });
   }
 
   getColor(): { color: string } {
@@ -64,6 +69,23 @@ export class GameCardComponent implements OnInit {
     }else{
       return { color: 'grey' };;
     }
+  }
+
+}
+
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: './dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onOkClick(): void {
+    this.dialogRef.close();
   }
 
 }
