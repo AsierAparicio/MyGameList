@@ -11,7 +11,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',
   styleUrls: [`./game-card.component.css`]
-
 })
 export class GameCardComponent implements OnInit {
   @Input() juego!: Result;
