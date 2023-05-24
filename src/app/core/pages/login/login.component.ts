@@ -1,3 +1,4 @@
+import { Color } from './../../../interfaces/Videojuego.interfaces';
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,10 +14,13 @@ import { Router } from '@angular/router';
     max-width: 500px;
     margin: 32px;
 }
+h4{
+  Color: red;
+}
   `]
 })
 export class LoginComponent implements OnInit {
-
+valid: boolean = true;
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.login(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/menu']); this.loginService.setUser(this.loginForm.value.email, response.user.uid)}).catch(error => console.log(error));
+    this.loginService.login(this.loginForm.value).then( response => {  console.log(response); this.valid=true; this.router.navigate(['/menu']); this.loginService.setUser(this.loginForm.value.email, response.user.uid)}).catch(error => this.valid=false);
   }
 
   onClick(){
