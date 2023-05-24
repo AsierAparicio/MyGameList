@@ -71,6 +71,20 @@ export class GameCardComponent implements OnInit {
     }
   }
 
+  getColorFont(): { color: string } {
+    if (this.juego.metacritic == null) {
+      return { color: 'white' };
+    } else if (this.juego.metacritic >= 85) {
+      return { color: 'white' };
+    } else if (this.juego.metacritic <= 84) {
+      return { color: 'black' };
+    } else if(this.juego.metacritic <= 50){
+      return { color: 'white' };
+    }else{
+      return { color: 'white' };;
+    }
+  }
+
 }
 
 
