@@ -1,14 +1,17 @@
 <mat-toolbar class="toolbar">
-    <mat-icon routerLink="/">sports_esports</mat-icon>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <img src="../../../../assets/imgs/logo-MyGameLista.png" routerLink="/" alt="Descripción de la imagen">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menuu">
         <mat-icon>menu</mat-icon>
         <mat-menu #menu="matMenu">            
-          <button mat-menu-item routerLink="/home"><mat-icon matListItemIcon >grade</mat-icon>Home</button>
-          <button mat-menu-item routerLink="/detalles"><mat-icon matListItemIcon>update</mat-icon>Detalles</button>
+          <button mat-menu-item [routerLink]="['seguidos/',this.userID]"><mat-icon matListItemIcon >{{listas[0].icon}}</mat-icon>{{listas[0].nombre}}</button>
+          <button mat-menu-item [routerLink]="['guardados/',this.userID]"><mat-icon matListItemIcon >{{listas[1].icon}}</mat-icon>{{listas[1].nombre}}</button>
+          <button mat-menu-item [routerLink]="['abandonados/',this.userID]"><mat-icon matListItemIcon >{{listas[2].icon}}</mat-icon>{{listas[2].nombre}}</button>
         </mat-menu>
     </button>
 
     <span class="spacer"></span>
+    
+    <a class="directorio" [routerLink]="['home']">Directorio</a>
 
     <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario">
        {{user}}

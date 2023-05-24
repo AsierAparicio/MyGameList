@@ -59,8 +59,8 @@
 
 
         <div class="btns-container d-flex  pt-5">
-          <button class="btn btn-primary" type="button"(click)="onSubmit()">Guardar</button>
-          <button class="btn btn-secondary text-center" type="button">Cancelar</button>
+          <button class="btn btn-primary" type="button"(click)="onSubmit()" routerLink="['/']">Guardar</button>
+          <button class="btn btn-secondary text-center" type="button" routerLink="['/']">Cancelar</button>
         </div>
         <br>
         <div class="card-columns"  *ngFor="let genre of valoracionesExter">

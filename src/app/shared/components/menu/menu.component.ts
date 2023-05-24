@@ -15,12 +15,43 @@ import { LoginService } from 'src/app/core/services/login.service';
 
     }
 
+    @media screen and (min-width:920px) {
+      .menuu{
+        display: none;
+      }
+    }
+    
+    img {
+      width:8vw;
+      height:4vw;
+    }
+
+    a.directorio {
+      text-decoration: none;
+      display: block;
+      color: white;
+      padding-right: 5vw;
+    }
+
+    a.directorio:hover{
+      transition: all .2s linear;
+      color: #BB86FC;
+    }
+
   `]
 })
 export class MenuComponent implements OnInit{
   constructor( private loginService: LoginService){}
   user:string = '';
   log:boolean = false;
+  userID = this.loginService.getId()
+
+  listas: { icon: string, nombre: string }[] = [
+    { icon: "favorite", nombre: "Seguidos" },
+    { icon: "watch_later", nombre: "Pendientes" },
+    { icon: "heart_broken", nombre: "Abandonados" },
+
+  ]
 
   ngOnInit(): void {
     this.checkear()
