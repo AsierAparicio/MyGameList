@@ -20,7 +20,7 @@
 
   <div class="d-flex justify-content-between">
     <mat-card-subtitle class="mat-card-subtitle p-2">{{juego.released}}</mat-card-subtitle>
-    <div class="metacritic" [style.background-color]="getColor().color"><p>
+    <div class="metacritic" [style.background-color]="getColor().color" [style.color]="getColorFont().color"><p>
       {{ juego.metacritic }}
     </p></div>
   </div>

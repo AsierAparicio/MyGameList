@@ -69,11 +69,16 @@
 
   .col-md-10{
     width: 90% ;
-    margin-left:0 !important;
+    margin-left:4.6vw !important;
   }
   .listasNoFixed{
     margin-left:0 !important;
   }
+
+  .card-container{
+    display: none;
+  }
+  
 }
 @media screen and (min-width:920px) {
   .col-md-2{
