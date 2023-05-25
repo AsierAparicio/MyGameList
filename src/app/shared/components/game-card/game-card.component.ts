@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 import { Result } from 'src/app/interfaces/Videojuego.interfaces';
 import Valoracion from 'src/app/interfaces/Valoracion.interfaces';
 import { LoginService } from '../../../core/services/login.service';
 import { BbddService } from '../../../core/services/bbdd.service';
 import { Timestamp } from 'firebase/firestore';
+import { DialogComponent } from '../dialog/dialog.component';
 
 
 @Component({
@@ -23,7 +26,7 @@ export class GameCardComponent implements OnInit {
     { icon: "heart_broken", nombre: "Abandonados", value: 2 },
 
   ]
-  constructor(private LoginService:LoginService, private BbddService:BbddService) { }
+  constructor(private LoginService:LoginService, private BbddService:BbddService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -49,7 +52,23 @@ export class GameCardComponent implements OnInit {
     this.Valoracion.metacritic = this.juego.metacritic
     this.Valoracion.gameID = this.juego.id
     this.Valoracion.listaID = lista
-    await this.BbddService.selectInsertUpdateCambioLista(this.Valoracion, lista);
+
+    if (this.LoginService.getId() != 0 ){
+      await this.BbddService.selectInsertUpdateCambioLista(this.Valoracion, lista);
+      this.openDialog()
+    } else {
+      this.openDialog()
+    }
+  }
+
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: {
+        juego: this.juego.name,
+        user: this.usuario,
+        codigo: this.LoginService.getId()
+      }
+    });
   }
 
   getColor(): { color: string } {
