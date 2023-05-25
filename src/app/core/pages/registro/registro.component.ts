@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
-
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -25,14 +26,21 @@ export class RegistroComponent implements OnInit{
 
   hide = true;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {}
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router , public dialog: MatDialog) {}
 
   ngOnInit() {
 
   }
 
   onSubmit() {
-    this.loginService.register(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/login'])}).catch(error => console.log(error));
+    this.loginService.register(this.loginForm.value).then( response => {  console.log(response); this.openDialog();this.router.navigate(['/login'])}).catch(error => console.log(error));
   }
 
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: {
+        ventana: 'registro',
+      }
+    });
+  }
 }
