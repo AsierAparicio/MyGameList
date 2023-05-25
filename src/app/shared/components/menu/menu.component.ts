@@ -34,7 +34,7 @@ import { LoginService } from 'src/app/core/services/login.service';
     }
 
     .directorio {
-      font-size: 1vw;
+      font-size: 20px;
       display: block;
       color: white;
       margin-right: 5vw;
