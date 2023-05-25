@@ -76,7 +76,7 @@ export class GameCardComponent implements OnInit {
       return { color: 'gray' };
     } else if (this.juego.metacritic >= 85) {
       return { color: 'green' };
-    } else if (this.juego.metacritic <= 84) {
+    } else if (this.juego.metacritic <= 84 && this.juego.metacritic >= 50) {
       return { color: 'yellow' };
     } else if(this.juego.metacritic <= 50){
       return { color: 'red' };
