@@ -1,7 +1,8 @@
 <app-menu></app-menu>
 <div class="box">
         <h1 class="usuario mt-3">{{usuario}}</h1>
-        <h3 class="id">{{userID}}</h3>
+        <h3 class="id">{{userID}}  <button class="boton" mat-button [cdkCopyToClipboard]="userID">Copiar ID</button></h3>
+
         <hr>
         
         <div class="grafica2">
@@ -25,4 +26,6 @@
                 </div>
         </div>
 </div>
+
+
 
