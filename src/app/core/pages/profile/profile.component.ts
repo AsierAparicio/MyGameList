@@ -13,5 +13,6 @@ export class ProfileComponent{
 
   userID=this.LoginService.getId();
   usuario=this.LoginService.getUser();
- 
+
+
   }

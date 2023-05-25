@@ -1,27 +1,39 @@
 <mat-toolbar class="toolbar">
-    <img src="../../../../assets/imgs/logo-MyGameLista.png" routerLink="/" alt="Descripción de la imagen">
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="menuu">
-        <mat-icon>menu</mat-icon>
-        <mat-menu #menu="matMenu">            
-          <button mat-menu-item [routerLink]="['seguidos/',this.userID]"><mat-icon matListItemIcon >{{listas[0].icon}}</mat-icon>{{listas[0].nombre}}</button>
-          <button mat-menu-item [routerLink]="['guardados/',this.userID]"><mat-icon matListItemIcon >{{listas[1].icon}}</mat-icon>{{listas[1].nombre}}</button>
-          <button mat-menu-item [routerLink]="['abandonados/',this.userID]"><mat-icon matListItemIcon >{{listas[2].icon}}</mat-icon>{{listas[2].nombre}}</button>
-        </mat-menu>
-    </button>
+  <img src="../../../../assets/imgs/logo-MyGameLista.png" routerLink="/" alt="Descripción de la imagen">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menuu">
+    <mat-icon>menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="seguidos()"><mat-icon
+          matListItemIcon>{{listas[0].icon}}</mat-icon>{{listas[0].nombre}}</button>
+      <button mat-menu-item (click)="guardados()"><mat-icon
+          matListItemIcon>{{listas[1].icon}}</mat-icon>{{listas[1].nombre}}</button>
+      <button mat-menu-item (click)="abandonados()"><mat-icon
+          matListItemIcon>{{listas[2].icon}}</mat-icon>{{listas[2].nombre}}</button>
+    </mat-menu>
+  </button>
 
-    <span class="spacer"></span>
-    
-    <a class="directorio" [routerLink]="['home']">Directorio</a>
+  <span class="spacer"></span>
 
-    <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario">
-       {{user}}
-       <mat-menu #usuario="matMenu">
-        <button mat-menu-item routerLink="/perfil">Estadisticas</button>
-        <button mat-menu-item (click)="logOut()">Cerrar Sesion</button>
-      </mat-menu>
-    </button>
+  <button mat-button class="directorio" (click)="home()">Directorio</button>
 
-    <button *ngIf="!log" mat-button routerLink="/login">
-      Iniciar Sesion
-   </button>
+  <button *ngIf="log" mat-button [matMenuTriggerFor]="usuario" class="menuu2">
+    {{user}}
+    <mat-menu #usuario="matMenu">
+      <button mat-menu-item routerLink="/perfil">Estadisticas</button>
+      <button mat-menu-item (click)="logOut()">Cerrar Sesion</button>
+    </mat-menu>
+  </button>
+
+  <button *ngIf="!log" mat-button routerLink="/login" class="menuu2">
+    Iniciar Sesion
+  </button>
+
+  <button mat-icon-button [matMenuTriggerFor]="usuario" class="menuu">
+    <mat-icon>account_circle</mat-icon>
+    <mat-menu #usuario="matMenu">
+      <button  *ngIf="log" mat-menu-item routerLink="/perfil">Estadisticas</button>
+      <button  *ngIf="log" mat-menu-item (click)="logOut()">Cerrar Sesion</button>
+      <button *ngIf="!log" mat-button routerLink="/login">Iniciar Sesion</button>
+    </mat-menu>
+  </button>
 </mat-toolbar>

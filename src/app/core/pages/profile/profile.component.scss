@@ -1,26 +1,43 @@
 .usuario {
     font-size: 2.5vw; /* Cambia el tamaño de la fuente a tu preferencia */
     font-weight: bold; /* Aplica negrita al texto */
-    color: black;
+    color: white;
  /* Cambia el color de fuente a tu preferencia */
   }
 
   .titulo{
     font-size: 1.5vw; /* Cambia el tamaño de la fuente a tu preferencia */
     font-weight: bold; /* Aplica negrita al texto */
-    color: black;
+    color: white;
     margin-bottom: 2vw;
   }
   
   .id {
     font-size: 1vw; /* Cambia el tamaño de la fuente a tu preferencia */
-    color: gray; /* Cambia el color de fuente a tu preferencia */
+    color: lightgray; /* Cambia el color de fuente a tu preferencia */
   }
   .box{
-    margin-left: 1.5vw;
+    margin-left: 1vw;
   }
 .graficos{
+  margin: 1vw;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Divide el contenedor en 3 columnas iguales */
-    gap: 20px;
+    grid-template-columns: repeat(3, 31vw); /* Divide el contenedor en 3 columnas iguales */
+    gap: 1vw;
+}
+
+.boton{
+  margin-left: 1vw;
+  background-color: #1f2123;
+}
+
+.grafica{
+  padding: 1vw;
+  background-color: #1f2123;
+}
+
+.grafica2{
+  padding: 1vw;
+  background-color: #1f2123;
+  margin: 1vw;
 }

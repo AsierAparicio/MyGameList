@@ -1,6 +1,7 @@
-<div fxLayoutAlign="center" class="container">
+<div fxLayoutAlign="center" class="container fondo">
+
   <mat-card class="login-card">
-    <mat-card-header fxLayoutAlign="center">
+    <mat-card-header fxLayoutAlign="center" class="mb-4">
       <mat-card-title>Iniciar Sesión</mat-card-title>
     </mat-card-header>
 
@@ -14,21 +15,24 @@
         <mat-form-field appearance="fill" fxFlex>
           <mat-label>Contraseña</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingresa tu contraseña" formControlName="password" style="font-size: 16px;">
-            <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
-
+        <div fxLayoutAlign="center" class="">
+          <h4 *ngIf="valid!=true">Usuario o contraseña incorrecto</h4>
+        </div>
         <div fxLayoutAlign="center">
-          <button mat-raised-button color="primary" style="font-size: 24px;">Iniciar Sesión</button>
+          <button mat-raised-button color="primary" style="font-size: 24px;" fxFlex>Iniciar Sesión</button>
         </div>
       </form>
       <br>
       <div fxLayoutAlign="center">
-        <button mat-raised-button color="primary" style="font-size: 24px;" routerLink="/registro">Registrarse</button>
+        <button mat-raised-button color="primary" style="font-size: 24px;" routerLink="/registro" fxFlex>Registrarse</button>
       </div>
       <br>
       <div fxLayoutAlign="center">
-        <button mat-raised-button color="accent" style="font-size: 24px;" (click)="onClick()">Google</button>
+        <button mat-raised-button color="accent" style="font-size: 24px;" (click)="onClick()" fxFlex>Google</button>
       </div>
     </mat-card-content>
   </mat-card>
+
 </div>

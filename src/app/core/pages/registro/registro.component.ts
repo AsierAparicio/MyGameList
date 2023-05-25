@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styles: [`
+   mat-card-title{
+    font-size: 2vw;
+  }
   .login-card {
-    max-width: 500px;
-    margin: 32px;
+    max-width: 45vw;
+    margin: 3vw;
 }
   `]
 })

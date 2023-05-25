@@ -16,6 +16,7 @@ import { GameListSeguidosComponent } from './pages/game-list-seguidos/game-list-
 import { GameListGuardadosComponent } from './pages/game-list-guardados/game-list-guardados.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgChartsModule } from 'ng2-charts';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 
@@ -30,7 +31,8 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NgChartsModule
+    NgChartsModule,
+    ClipboardModule
   ],
   declarations: [LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, GameListPersonalComponent, GameListSeguidosComponent, GameListGuardadosComponent, ProfileComponent],
   exports:[LoginComponent,HomeComponent,GameListComponent,GameDetailComponent, RegistroComponent, ProfileComponent]

@@ -1,23 +1,31 @@
 <app-menu></app-menu>
 <div class="box">
         <h1 class="usuario mt-3">{{usuario}}</h1>
-        <h3 class="id">{{userID}}</h3>
+        <h3 class="id">{{userID}}  <button class="boton" mat-button [cdkCopyToClipboard]="userID">Copiar ID</button></h3>
+
         <hr>
-        <h1 class="titulo mt-5">Datos Generales</h1>
-        <app-graficas [linea]="true" [usucompa]="''"></app-graficas>  
+        
+        <div class="grafica2">
+                <h1 class="titulo mt-5">Datos Generales</h1>
+                <app-graficas [linea]="true" [usucompa]="''"></app-graficas>  
+        </div>
+       
+        <br>
         <div class="row graficos">
-                <div>
+                <div class="grafica">
                         <h1 class="titulo">Siguiendo</h1>
                         <app-graficas [lista]="1"></app-graficas>
                 </div>
-                <div>
+                <div class="grafica">
                         <h1 class="titulo">Pendientes</h1>
                         <app-graficas [lista]="3"></app-graficas>
                 </div>
-                <div>
+                <div class="grafica">
                         <h1 class="titulo">Abandonados</h1>
                         <app-graficas [lista]="2"></app-graficas>   
                 </div>
         </div>
 </div>
+
+
 
