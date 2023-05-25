@@ -9,6 +9,8 @@ import { GameCardValoracionComponent } from './components/game-card-valoracion/g
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { NgChartsModule } from 'ng2-charts';
 import { QrComponent } from './components/qr/qr.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+
 
 
 @NgModule({
@@ -19,8 +21,8 @@ import { QrComponent } from './components/qr/qr.component';
     RouterModule,
     NgChartsModule
   ],
-  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, QrComponent, GraficasComponent],
-  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, QrComponent, GraficasComponent]
+  declarations: [GameCardComponent, MenuComponent,StarRatingComponent, GameCardValoracionComponent, QrComponent, GraficasComponent, DialogComponent],
+  exports: [GameCardComponent, MenuComponent,StarRatingComponent,GameCardValoracionComponent, QrComponent, GraficasComponent, DialogComponent]
 
 })
 export class SharedModule { }
