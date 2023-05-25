@@ -156,8 +156,7 @@ export class GraficasComponent implements OnInit {
       labels: this.doughnutChartLabels,
       datasets: [
         { data: [ this.num1, this.num2, this.num3, this.num4, this.num5 ] ,
-          backgroundColor: ['#C71E00','#C76D00', '#C7C400', '#15C700', '#00C7B5']},
-      ]
+          backgroundColor: ['#C71E00','#C76D00', '#C7C400', '#15C700', '#00C7B5']},      ]
     };
   }
 

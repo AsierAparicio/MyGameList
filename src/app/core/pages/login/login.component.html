@@ -1,4 +1,5 @@
-<div fxLayoutAlign="center" class="container">
+<div fxLayoutAlign="center" class="container fondo">
+
   <mat-card class="login-card">
     <mat-card-header fxLayoutAlign="center" class="mb-4">
       <mat-card-title>Iniciar Sesión</mat-card-title>
@@ -20,17 +21,18 @@
           <h4 *ngIf="valid!=true">Usuario o contraseña incorrecto</h4>
         </div>
         <div fxLayoutAlign="center">
-          <button mat-raised-button color="primary" style="font-size: 24px;">Iniciar Sesión</button>
+          <button mat-raised-button color="primary" style="font-size: 24px;" fxFlex>Iniciar Sesión</button>
         </div>
       </form>
       <br>
       <div fxLayoutAlign="center">
-        <button mat-raised-button color="primary" style="font-size: 24px;" routerLink="/registro">Registrarse</button>
+        <button mat-raised-button color="primary" style="font-size: 24px;" routerLink="/registro" fxFlex>Registrarse</button>
       </div>
       <br>
       <div fxLayoutAlign="center">
-        <button mat-raised-button color="accent" style="font-size: 24px;" (click)="onClick()">Google</button>
+        <button mat-raised-button color="accent" style="font-size: 24px;" (click)="onClick()" fxFlex>Google</button>
       </div>
     </mat-card-content>
   </mat-card>
+
 </div>

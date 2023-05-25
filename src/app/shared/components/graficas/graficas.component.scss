@@ -1,6 +1,6 @@
 .chart-container {
-    width: 27vw; /* Adjust the width as desired */
-    height: 27vw; /* Adjust the height as desired */
+    width: 26vw; /* Adjust the width as desired */
+    height: 26vw; /* Adjust the height as desired */
   }
 
   .chart-container-barra {
@@ -16,4 +16,8 @@
     flex-direction: column;
     align-items: flex-start;
     margin-left: 20px; /* Ajusta el margen izquierdo según sea necesario */
+  }
+
+  .chart{
+    color: white;
   }

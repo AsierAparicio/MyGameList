@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center" class="container">
     <mat-card class="login-card">
-      <mat-card-header fxLayoutAlign="center">
+      <mat-card-header fxLayoutAlign="center" class="mb-4">
         <mat-card-title>Registro</mat-card-title>
       </mat-card-header>
   
@@ -18,9 +18,12 @@
           </mat-form-field>
   
           <div fxLayoutAlign="center">
-            <button mat-raised-button color="primary" style="font-size: 24px;">Registrar</button>
+            <button mat-raised-button color="primary" style="font-size: 24px;" fxFlex class="mb-4">Registrar</button>
           </div>
         </form>
+        <div fxLayoutAlign="center">
+          <button mat-raised-button color="primary" style="font-size: 24px;" routerLink="/login" fxFlex>Volver</button>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>

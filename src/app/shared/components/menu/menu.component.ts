@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
@@ -20,20 +21,26 @@ import { LoginService } from 'src/app/core/services/login.service';
         display: none;
       }
     }
+
+    @media (max-width:920px) and (min-width:0px) {
+      .menuu2{
+        display: none;
+      }
+    }
     
     img {
       width:8vw;
       height:4vw;
     }
 
-    a.directorio {
-      text-decoration: none;
+    .directorio {
+      font-size: 1vw;
       display: block;
       color: white;
-      padding-right: 5vw;
+      margin-right: 5vw;
     }
 
-    a.directorio:hover{
+    .directorio:hover{
       transition: all .2s linear;
       color: #BB86FC;
     }
@@ -41,11 +48,12 @@ import { LoginService } from 'src/app/core/services/login.service';
   `]
 })
 export class MenuComponent implements OnInit{
-  constructor( private loginService: LoginService){}
+  constructor( private loginService: LoginService, private router: Router){}
   user:string = '';
   log:boolean = false;
   userID = this.loginService.getId()
 
+  
   listas: { icon: string, nombre: string }[] = [
     { icon: "favorite", nombre: "Seguidos" },
     { icon: "watch_later", nombre: "Pendientes" },
@@ -69,6 +77,21 @@ export class MenuComponent implements OnInit{
     } else {
       this.log = true;
     }
+  }
+
+  seguidos(){
+    this.router.navigate(['/seguidos/'+this.userID]);
+  }
+
+  guardados(){
+    this.router.navigate(['/guardados/'+this.userID]);
+  }
+  abandonados(){
+    this.router.navigate(['/abandonados/'+this.userID]);
+  }
+
+  home(){
+    this.router.navigate(['/home']);
   }
 
 }
