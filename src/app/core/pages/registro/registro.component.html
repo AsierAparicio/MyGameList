@@ -10,12 +10,16 @@
             <mat-label>Gmail</mat-label>
             <input matInput placeholder="Ingresa tu usuario" formControlName="email" style="font-size: 16px;">
           </mat-form-field>
-  
+          
           <mat-form-field appearance="fill" fxFlex>
             <mat-label>Contraseña</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingresa tu contraseña" formControlName="password" style="font-size: 16px;">
               <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
+          <p>* minimo 6 caracteres</p>
+          <div fxLayoutAlign="center" class="">
+            <h4 *ngIf="valid!=true">Correo o Contraseña incorrecto</h4>
+          </div>
   
           <div fxLayoutAlign="center">
             <button mat-raised-button color="primary" style="font-size: 24px;" fxFlex class="mb-4">Registrar</button>

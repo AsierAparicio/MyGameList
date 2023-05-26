@@ -10,6 +10,13 @@ import { Router } from '@angular/router';
    mat-card-title{
     font-size: 2vw;
   }
+  p{
+    margin-top: -20%;
+    color: lightgray;
+  }
+  h4{
+    color: red;
+  }
   .login-card {
     max-width: 45vw;
     margin: 3vw;
@@ -17,7 +24,7 @@ import { Router } from '@angular/router';
   `]
 })
 export class RegistroComponent implements OnInit{
-
+  valid = true;
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -32,7 +39,7 @@ export class RegistroComponent implements OnInit{
   }
 
   onSubmit() {
-    this.loginService.register(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/login'])}).catch(error => console.log(error));
+    this.loginService.register(this.loginForm.value).then( response => {  console.log(response); this.router.navigate(['/login'])}).catch(error => this.valid = false);
   }
 
 }
