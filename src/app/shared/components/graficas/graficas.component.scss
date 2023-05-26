@@ -10,7 +10,10 @@
     width: 45vw; /* Adjust the width as desired */
     height: 27vw; /* Adjust the height as desired */
   }
-  
+  .btn-primary{
+    background-color: #BB86FC;
+    border-color:#BB86FC;
+  }
   .textarea-container {
     display: flex;
     flex-direction: column;

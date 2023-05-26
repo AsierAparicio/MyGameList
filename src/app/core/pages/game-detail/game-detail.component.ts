@@ -115,7 +115,7 @@ export class GameDetailComponent implements OnInit {
       return { color: 'gray' };
     } else if (this.game.metacritic >= 85) {
       return { color: 'green' };
-    } else if (this.game.metacritic <= 84) {
+    } else if (this.game.metacritic <= 84 && this.game.metacritic >= 50) {
       return { color: 'yellow' };
     } else if(this.game.metacritic <= 50){
       return { color: 'red' };
@@ -123,6 +123,22 @@ export class GameDetailComponent implements OnInit {
       return { color: 'grey' };;
     }
   }
+
+
+  getColorFont(): { color: string } {
+    if (this.game.metacritic == null) {
+      return { color: 'white' };
+    } else if (this.game.metacritic >= 85) {
+      return { color: 'white' };
+    } else if (this.game.metacritic <= 84 && this.game.metacritic >= 50) {
+      return { color: 'black' };
+    } else if(this.game.metacritic <= 50){
+      return { color: 'white' };
+    }else{
+      return { color: 'white' };;
+    }
+  }
+
   onChange(event: any) {
     console.log(event)
     this.listaSeleccionada = event.target.value;
